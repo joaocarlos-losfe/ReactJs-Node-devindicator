@@ -1,7 +1,4 @@
 const router = require('express').Router();
-
-const { json } = require('express/lib/response');
-const { find } = require('../models/user');
 const UserModel = require('../models/user');
 const {encriptData, decryptData} = require('../security/bcript');
 
