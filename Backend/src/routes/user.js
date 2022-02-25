@@ -46,7 +46,7 @@ router.get('/login/:email/:pass', async (req, res)=>
             }
         }
 
-        res.status(401).json({menssage: 'email ou senha invalidos', data: undefined});
+        res.status(422).json({menssage: 'email ou senha invalidos', data: undefined});
         return;
 
     }catch(e){
