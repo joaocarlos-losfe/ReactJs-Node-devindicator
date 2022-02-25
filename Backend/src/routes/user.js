@@ -36,14 +36,12 @@ router.get('/login/:email/:pass', async (req, res)=>
     try
     {
         const user = await UserModel.findOne({email: req.params.email});
-           
+
         if(user)
         {
-            const {pass, username} = user;
-
-            if( await decryptData(pass, req.params.pass))
+            if( await decryptData(user.pass, req.params.pass))
             {
-                res.status(200).json({menssage: 'usuario logado', data: username});
+                res.status(200).json({menssage: 'usuario logado', data: user.username});
                 return;
             }
         }
