@@ -6,32 +6,28 @@ router.post("/add", async (req, res) =>
 {
     try
     {
-        if(req.body)
+        if(req.body.username && req.body.email && req.body.pass)
         {
             const user_name = await UserModel.findOne({username: req.body.username});
             const user_email = await UserModel.findOne({email: req.body.email});
 
             if(user_name || user_email) 
-            {
                 res.status(401).json({menssage: "ja existe um cadastro com esse email ou usuario"});
-                return;
-            }
-            
-            let {username, email, pass} = req.body;
-
-            if(!username || !email || !pass)
+            else
             {
-                res.status(422).json({menssage: "alguns campos estão em branco ou invalidos !"});
-                return;
-            }
+                const {username, email} = req.body;
+
+                let pass = await encriptData(req.body.pass);
+
+                const user = {username, email, pass}
+
+                await UserModel.create(user);
+                res.status(201).json({menssage: "usuario criado com sucesso"});
+            }   
             
-            pass = await encriptData(pass);
-
-            const user = { username, email, pass}
-
-            await UserModel.create(user);
-            res.status(201).json({menssage: "usuario criado com sucesso"});
         }
+        else
+            res.status(422).json({menssage: "alguns campos estão em branco ou invalidos !"});
 
     }catch (err)
     {
@@ -56,7 +52,6 @@ router.get('/login/:email/:pass', async (req, res)=>
         }
 
         res.status(422).json({menssage: 'email ou senha invalidos', data: undefined});
-        return;
 
     }catch(e){
         res.status(500).json({menssage: 'erro no servidor..'});

@@ -5,8 +5,8 @@ const SECRET = require('./src/security/secrets')
 
 const app = express();
 
-const UserRouter = require('./src/routes/user');
-const PostRouter = require('./src/routes/post');
+const UserRouter = require('./src/routes/user_routes');
+const PostRouter = require('./src/routes/post_routes');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
