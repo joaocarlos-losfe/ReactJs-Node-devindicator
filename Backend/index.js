@@ -1,13 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const SECRET = require('./src/security/secrets')
+
 const app = express();
 
 const UserRouter = require('./src/routes/user');
 const PostRouter = require('./src/routes/post');
-
-const MONGO_DB_COMPASS_URL = "mongodb+srv://joaocarlos:00000000@devindicatorapi.lzzak.mongodb.net/devindicator_database";
-const BASE_URL_DATABASE_CONECTION = "mongodb+srv://joaocarlos:00000000@devindicatorapi.lzzak.mongodb.net/devindicator_database?retryWrites=true&w=majority"; 
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -21,7 +20,7 @@ app.get("/", (req, res)=>
 
 // conectando ao banco de dados
 mongoose.connect(
-    BASE_URL_DATABASE_CONECTION
+    SECRET.BASE_URL_DATABASE_CONECTION
 ).then(()=>
 {
     console.log("successfully connected to the database !");

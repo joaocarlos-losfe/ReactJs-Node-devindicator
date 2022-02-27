@@ -1,25 +1,37 @@
 const router = require('express').Router();
 const UserModel = require('../models/user');
-const {encriptData, decryptData} = require('../security/bcript');
+const {encriptData, decryptData} = require('../security/criptografy');
 
 router.post("/add", async (req, res) =>
 {
-    let {username, email, pass} = req.body;
-
-    if(!username || !email || !pass)
-    {
-        res.status(422).json({menssage: "alguns campos estão em branco ou invalidos !"});
-        return;
-    }
-    
-    pass = await encriptData(pass);
-
-    const user = { username, email, pass}
-
     try
     {
-        await UserModel.create(user);
-        res.status(201).json({menssage: "usuario criado com sucesso"});
+        if(req.body)
+        {
+            const user_name = await UserModel.findOne({username: req.body.username});
+            const user_email = await UserModel.findOne({email: req.body.email});
+
+            if(user_name || user_email) 
+            {
+                res.status(401).json({menssage: "ja existe um cadastro com esse email ou usuario"});
+                return;
+            }
+            
+            let {username, email, pass} = req.body;
+
+            if(!username || !email || !pass)
+            {
+                res.status(422).json({menssage: "alguns campos estão em branco ou invalidos !"});
+                return;
+            }
+            
+            pass = await encriptData(pass);
+
+            const user = { username, email, pass}
+
+            await UserModel.create(user);
+            res.status(201).json({menssage: "usuario criado com sucesso"});
+        }
 
     }catch (err)
     {
