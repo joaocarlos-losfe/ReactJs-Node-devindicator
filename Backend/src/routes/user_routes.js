@@ -27,7 +27,7 @@ router.post("/add", async (req, res) =>
             
         }
         else
-            res.status(422).json({menssage: "alguns campos estão em branco ou invalidos !"});
+            res.status(422).json({menssage: "alguns campos estão faltando ou invalidos !"});
 
     }catch (err)
     {

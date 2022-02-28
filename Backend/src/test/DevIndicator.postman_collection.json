@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "13d4eb89-04e7-4db3-ab40-f4c7c094684e",
+		"name": "DevIndicator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "add user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"elia\",\r\n    \"email\": \"elia@outlook.com\",\r\n    \"pass\": \"okok\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/users/login/joaocarlos.losfe@gmail.com/1234",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"login",
+								"joaocarlos.losfe@gmail.com",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "add post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"João Carlos\",\r\n    \"category\": \"Artigo\",\r\n    \"tags\" : \"tecnologia; artigo; balta.io\",\r\n    \"title\" : \"Executando processamentos com o hangfire\",\r\n    \"description\" : \"Se você já desenvolveu projetos de integração entre sistemas provavelmente já precisou dedicar algumas horas de estudo para elaborar uma estrutura capaz de executar determinadas rotinas a partir de um agendamento.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/post/add",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"post",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000",
+			"type": "default"
+		}
+	]
+}
