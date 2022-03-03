@@ -1,44 +1,20 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Footer } from "./components/Footer"
+import { NavBar } from "./components/Navbar"
+import { Home } from "./pages/Home"
 
-function App(a,b, c) {
-  const [count, setCount] = useState(0)
+// a pilha de navegação e variaveis globais ficarão nesse arquivo
+// tutorial de navegação aqui: https://reactrouter.com/docs/en/v6/getting-started/tutorial 
+// tutorial de context api: https://www.youtube.com/watch?v=H6bCSzxxiNc&list=WL
+
+function App() {
 
   return (
     <div className="App">
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <NavBar/>
+      <Home/>
+      <Footer/>
+     
     </div>
   )
 }

@@ -1,0 +1,10 @@
+#padrão de condificação:
+
+1 - todo novo componente deve ser criado na Pasta "./src/components".
+1.1 - todo componente deve ter sua pasta com A primeira letra maicuscula.
+1.2 - dentro da pasta do componente ira conter os arquivos "index.jsx" e "style.css"
+
+2 - todas as imagens deverão ser armazenadas na pasta "./src/assets".
+2.1 - as images deverão ser no formato ".svg"
+
+3 - o ponto de partida onde os componentes serão agrupados será no arquivo "App.jsx"
