@@ -2,6 +2,21 @@ const router = require('express').Router();
 const PostModel = require('../models/post');
 const { getCurrentTime } = require('../utils/formated_datetime');
 
+
+router.get("/", async (req, res) => 
+{
+    try
+    {
+        const posters = await PostModel.find({});
+        res.status(200).json({data: posters});
+
+    }catch(err)
+    {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}); 
+
 router.get("/by_user/:user_name", async (req, res) => 
 {
     try
@@ -11,20 +26,6 @@ router.get("/by_user/:user_name", async (req, res) =>
         if(posters_by_user)
             res.status(200).json({data: posters_by_user});
         
-    }catch(err)
-    {
-        console.log(err);
-        res.status(500).json(err);
-    }
-}); 
-
-router.get("/", async (req, res) => 
-{
-    try
-    {
-        const posters = await PostModel.find({});
-        res.status(200).json({data: posters});
-
     }catch(err)
     {
         console.log(err);
