@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"elia\",\r\n    \"email\": \"elia@outlook.com\",\r\n    \"pass\": \"okok\"\r\n}",
+							"raw": "{\r\n    \"username\": \"Matheus Victor\",\r\n    \"email\": \"matheus@gmail.com\",\r\n    \"pass\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -47,7 +47,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"João Carlos\",\r\n    \"category\": \"Artigo\",\r\n    \"tags\" : \"tecnologia; artigo; balta.io\",\r\n    \"title\" : \"Executando processamentos com o hangfire\",\r\n    \"description\" : \"Se você já desenvolveu projetos de integração entre sistemas provavelmente já precisou dedicar algumas horas de estudo para elaborar uma estrutura capaz de executar determinadas rotinas a partir de um agendamento.\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"João Carlos\",\r\n    \"category\": \"Video\",\r\n    \"tags\" : \"tecnologia; youtube; windows, fabio akita, wsl ubuntu, wsl 2\",\r\n    \"title\" : \"Entendendo WSL 2 E uma curta história sobre Windows NT\",\r\n    \"description\" : \"Eu vinha prometendo esse tema já faz algum tempo e finalmente resolvi explicar esse tal de WSL ou Windows Subsystem for Linux, a solução que permite rodar programas de Linux diretamente em cima do Windows.\",\r\n    \"source_url\": \"https://youtu.be/28jHuWBi72w\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -55,6 +55,24 @@
 							}
 						},
 						"url": "{{BASE_URL}}/post/add"
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/post/"
+					},
+					"response": []
+				},
+				{
+					"name": "get posts by user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/post/by_user/João Carlos"
 					},
 					"response": []
 				}
