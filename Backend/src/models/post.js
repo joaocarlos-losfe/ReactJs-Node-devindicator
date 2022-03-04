@@ -7,7 +7,7 @@ const Post = mongoose.model('Post', {
     tags: [{type: String}],
     title: String,
     description: String,
-    project_url: String
+    source_url: String
 });
 
 module.exports = Post;
