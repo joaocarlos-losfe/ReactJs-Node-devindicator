@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "13d4eb89-04e7-4db3-ab40-f4c7c094684e",
+		"_postman_id": "87096bef-49f9-4df5-b44a-d58dd56dbedc",
 		"name": "DevIndicator",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -22,16 +22,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{BASE_URL}}/users/add",
-							"host": [
-								"{{BASE_URL}}"
-							],
-							"path": [
-								"users",
-								"add"
-							]
-						}
+						"url": "{{BASE_URL}}/users/add"
 					},
 					"response": []
 				},
@@ -40,18 +31,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{BASE_URL}}/users/login/joaocarlos.losfe@gmail.com/1234",
-							"host": [
-								"{{BASE_URL}}"
-							],
-							"path": [
-								"users",
-								"login",
-								"joaocarlos.losfe@gmail.com",
-								"1234"
-							]
-						}
+						"url": "{{BASE_URL}}/users/login/joaocarlos.losfe@gmail.com/1234"
 					},
 					"response": []
 				}
@@ -74,16 +54,21 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{BASE_URL}}/post/add",
-							"host": [
-								"{{BASE_URL}}"
-							],
-							"path": [
-								"post",
-								"add"
-							]
-						}
+						"url": "{{BASE_URL}}/post/add"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Data resources",
+			"item": [
+				{
+					"name": "get categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/data_resouces/categories"
 					},
 					"response": []
 				}
@@ -94,15 +79,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{BASE_URL}}/",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						""
-					]
-				}
+				"url": "{{BASE_URL}}/"
 			},
 			"response": []
 		}

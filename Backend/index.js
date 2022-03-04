@@ -7,12 +7,14 @@ const app = express();
 
 const UserRouter = require('./src/routes/user_routes');
 const PostRouter = require('./src/routes/post_routes');
+const DataResouces = require('./src/routes/data_resources');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+
 app.use("/users", UserRouter);
 app.use("/post", PostRouter);
-
+app.use("/data_resouces", DataResouces);
 
 app.get("/", (req, res)=>
 {
