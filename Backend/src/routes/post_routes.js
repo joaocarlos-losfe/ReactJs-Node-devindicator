@@ -22,10 +22,8 @@ router.get("/by_user/:user_name", async (req, res) =>
     try
     {
         const posters_by_user = await PostModel.find({username: req.params.user_name});
-
-        if(posters_by_user)
-            res.status(200).json({data: posters_by_user});
-        
+        res.status(200).json({data: posters_by_user});
+            
     }catch(err)
     {
         console.log(err);
