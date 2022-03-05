@@ -47,7 +47,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"João Carlos\",\r\n    \"category\": \"Video\",\r\n    \"tags\" : \"tecnologia; youtube; windows, fabio akita, wsl ubuntu, wsl 2\",\r\n    \"title\" : \"Entendendo WSL 2 E uma curta história sobre Windows NT\",\r\n    \"description\" : \"Eu vinha prometendo esse tema já faz algum tempo e finalmente resolvi explicar esse tal de WSL ou Windows Subsystem for Linux, a solução que permite rodar programas de Linux diretamente em cima do Windows.\",\r\n    \"source_url\": \"https://youtu.be/28jHuWBi72w\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"Bianca\",\r\n    \"category\": \"Noticia\",\r\n    \"tags\" : \"linux; open source; steam\",\r\n    \"title\" : \"Flatpak 1.14 promete acesso ao PulseAudio e outros serviços\",\r\n    \"description\" : \"Phaedrus Leeds anunciou hoje o lançamento do Flatpak 1.13.1 como o primeiro passo para a série estável Flatpak 1.14, que provavelmente será lançada no final desta primavera com novos recursos.\",\r\n    \"source_url\": \"https://9to5linux.com/dxvk-1-10-adds-more-improvements-for-god-of-war-gta-iv-quantum-break-and-other-games\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -73,6 +73,15 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{BASE_URL}}/post/by_user/João Carlos"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/post/search/Joanny Eva"
 					},
 					"response": []
 				}

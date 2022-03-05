@@ -4,7 +4,7 @@ router.get("/categories", (req, res)=>
 {
     try
     {
-        const categories = ["Video", "Artigo", "Plataforma", "Projeto", "Livro"];
+        const categories = ["video", "artigo", "plataforma", "projeto", "livro", "noticia"];
         res.status(200).json({data: categories});
 
     }catch(err)

@@ -2,7 +2,6 @@ const router = require('express').Router();
 const PostModel = require('../models/post');
 const { getCurrentTime } = require('../utils/formated_datetime');
 
-
 router.get("/", async (req, res) => 
 {
     try
@@ -30,6 +29,28 @@ router.get("/by_user/:user_name", async (req, res) =>
         res.status(500).json(err);
     }
 }); 
+
+router.get("/search/:filter", async (req, res) =>
+{
+    try
+    {
+        const posters_by_filter = await PostModel.find(
+            {
+                $or:[
+                        {tags: {$in:[req.params.filter]}}, 
+                        {username: req.params.filter}, 
+                        {category: req.params.filter},
+                        {title: req.params.filter}
+                    ]
+            });
+        res.status(200).json({data: posters_by_filter});
+    }
+    catch(err)
+    {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 router.post("/add", async (req, res) =>
 {
@@ -60,5 +81,7 @@ router.post("/add", async (req, res) =>
     }
     
 });
+
+
 
 module.exports = router;
