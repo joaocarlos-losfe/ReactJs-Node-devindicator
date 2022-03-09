@@ -1,7 +1,7 @@
+require('dotenv').config()
+
 const express = require('express');
 const mongoose = require('mongoose');
-
-const SECRET = require('./src/security/secrets')
 
 const app = express();
 
@@ -23,7 +23,7 @@ app.get("/", (req, res)=>
 
 // conectando ao banco de dados
 mongoose.connect(
-    SECRET.BASE_URL_DATABASE_CONECTION
+    process.env.BASE_URL_DATABASE_CONECTION
 ).then(()=>
 {
     console.log("successfully connected to the database !");
