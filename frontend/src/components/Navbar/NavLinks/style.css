@@ -1,11 +1,44 @@
-ul
+.NavLinks ul
 {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-li
+.NavLinks li
 {
-    margin-right: 15px;
-    list-style: none;
+    margin-right: 30px;
+    color: #BBF247;
+    font-size: 1.1em;
+    transition: 0.3s;
+    font-family: 'Merriweather Sans';
+    font-weight: bold;
+}
+
+.NavLinks li:hover
+{
+    cursor: pointer;
+    color: white;
+}
+
+.NavLinks button
+{
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+    background-color: #444B4D;
+    border: 3px solid #BBF247;
+    transition: 0.3s ease-in;
+}
+
+.NavLinks button:hover
+{
+    background-color: #22272C;
+}
+
+.NavLinks button #user_icon
+{
+    color: white;
+    font-size: 1.2em;
+      
 }

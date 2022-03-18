@@ -1,5 +1,28 @@
-div img
+.Logo a
 {
-    height: 60px;
-    width: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Logo img
+{
+    height: 40px;
+    margin-right: 5px;
+}
+
+.Logo h1
+{
+   font-size: 1.15em;
+   color: white;
+   font-weight: bold;
+   transition: 0.2s ease-in;
+   font-family: 'Merriweather Sans';
+   font-weight: bold;
+}
+
+.Logo h1:hover
+{
+    cursor: pointer;
+    color: #BBF247;
 }

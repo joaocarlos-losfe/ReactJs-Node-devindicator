@@ -4,15 +4,18 @@ import React from "react";
 import { Link } from "react-router-dom" // responsavel pela navegação entre as paginas
                                         //tutorial aqui: https://reactrouter.com/docs/en/v6/getting-started/tutorial
 
-export function Links()
+import { FaRegUser } from "react-icons/fa";
+                                   
+export function NavLinks()
 {
     return (
-        <div>
+        <div className='NavLinks'>
             <ul>
-                <li><a>link 1</a></li>
-                <li><a>link 2</a></li>
-                <li><a>link 3</a></li>
-                <li><a>link 4</a></li>
+                <li><a>indicar</a></li>
+                <li><a>contato</a></li>
+                <button>
+                    <FaRegUser id='user_icon'/>
+                </button>
             </ul>
         </div>
     )

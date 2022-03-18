@@ -1,17 +1,14 @@
-
-import { Logo } from "./Logo";
-import { Links } from "./NavLinks";
-import { SearchBar } from "./SearchBar";
-
+import { Logo } from './Logo';
+import { NavLinks } from './NavLinks';
+import { SearchBar } from './SearchBar';
 import './style.css';
 
 export function NavBar() {
     return(
-        <nav>
-            <h2>Navbar</h2>
-            <Links/>
+        <div className='NavBar'>
             <Logo/>
             <SearchBar/>
-        </nav>
+            <NavLinks/>
+        </div>
     ) 
 }
