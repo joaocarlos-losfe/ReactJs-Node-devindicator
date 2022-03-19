@@ -1,4 +1,5 @@
 import { useFetch } from "../../../hooks/useFetch";
+import { Loading } from "../../Loading";
 import "./style.css";
 
 
@@ -8,7 +9,7 @@ export function Filter()
 
     return (
         <div className="Filter">
-            {isLoading ? (<h3>loading categories...</h3>) : 
+            {isLoading ? <Loading/> : 
                 <label>
                     filtro
                     <select className="Filters">
