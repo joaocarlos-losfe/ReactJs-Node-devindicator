@@ -1,27 +1,9 @@
-.SearchBar label
+.SearchBar form
 {
-    color: #A1A1A5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-
-.SearchBar .Filters
-{
-    margin-left: 10px;
-    height: 30px;
-    width: 100px;
-    border: 2px solid #BBF247;
-    border-radius: 15px;
-    padding: 0px 10px;
-    background-color: #8B8B8B;
-    color: white;
-}
-
-.SearchBar .Filters option
-{
-    font-size: 1.2em;
-    width: 100px;
-    font-family: 'Merriweather Sans';
-}
-
 
 .SearchBar input
 {

@@ -4,13 +4,15 @@ router.get("/categories", (req, res)=>
 {
     try
     {
-        const categories = ["video", "artigo", "plataforma", "projeto", "livro", "noticia"];
-        res.status(200).json({data: categories});
+        console.log('request categories...')
+
+        res.status(200).json({categories: ["todos", "video", "artigo", "plataforma", "projeto", "livro", "noticia"]});
 
     }catch(err)
     {
         console.log(err);
         res.status(500).json(err);
+        console.log('request error...');
     }
 
 });
