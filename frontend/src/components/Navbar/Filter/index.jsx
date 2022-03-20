@@ -2,7 +2,6 @@ import { useFetch } from "../../../hooks/useFetch";
 import { Loading } from "../../Loading";
 import "./style.css";
 
-
 export function Filter()
 {
     const {data, isLoading} = useFetch("data-resouces/categories");
