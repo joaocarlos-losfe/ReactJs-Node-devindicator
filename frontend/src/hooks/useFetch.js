@@ -7,9 +7,6 @@ export function useFetch(url_api_route)
     const [data, setData] = useState(null);
     const [isLoading, setLoading] = useState(true)
 
-    const a = "joao"
-    const b = "carlos"
-
     useEffect(()=>
     {
         const getItems = async () =>

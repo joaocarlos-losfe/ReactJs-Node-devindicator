@@ -6,8 +6,9 @@ router.get("/", async (req, res) =>
 {
     try
     {
-        const posters = await PostModel.find({});
-        res.status(200).json({data: posters});
+        const posters = await PostModel.find({}).limit(9);
+        res.status(200).json({posters});
+        console.log('request posts...');
 
     }catch(err)
     {

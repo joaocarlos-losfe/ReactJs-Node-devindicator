@@ -2,36 +2,28 @@ import './style.css';
 
 import {FaExternalLinkAlt} from "react-icons/fa"
 
-export function Card() {
+export function Card(props) {
     return(
-        <div className='Card'>
+        <div id={props._id} className='Card'>
             <div className='Top'>
-                <h3>Video</h3>
+                <h3>{props.category}</h3>
                 <div className='DateTimeUser'>
-                    <h4>27/02/2022 18:57</h4>
+                    <h4>{props.post_date}</h4>
                     <div>
                         <span>indicado por</span>
-                        <h3>Matheus Victor</h3>
+                        <h3>{props.username}</h3>
                     </div>
                 </div>
             </div>
 
             <div className='Content'>
-                <h2>Árvores: o começo de tudo</h2>
-                <p>
-                    Este é o final da minha Trilogia de
-                    Estruturas de Dados e Algoritmos e
-                    finalmente vou conseguir falar sobre 
-                    o mais importante na matéria: 
-                    árvores! Vamos de BSTs a AVLs,  
-                    passando por Red Black Trees e 
-                    muito mais!
-                </p>
+                <h2>{props.title}</h2>
+                <p>{props.description}</p>
             </div>
 
             <div className='LinkArea'>
                 <div>
-                    <a><FaExternalLinkAlt/></a>
+                    <a href={props.source_url} target="_blank"><FaExternalLinkAlt/></a>
                 </div>
             </div>
 
