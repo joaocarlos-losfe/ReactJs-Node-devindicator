@@ -6,7 +6,7 @@ router.get("/categories", (req, res)=>
     {
         console.log('request categories...')
 
-        res.status(200).json({categories: ["todos", "video", "artigo", "plataforma", "projeto", "livro", "noticia"]});
+        res.status(200).json({categories: ["todos", "video", "artigo", "plataforma", "projeto", "livro", "noticia", "outros"]});
 
     }catch(err)
     {
