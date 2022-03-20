@@ -1,0 +1,113 @@
+.Card
+{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    background-color: #384147;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+.Card .Top
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.Card .Top h3
+{
+    color: white;
+    font-size: 0.9em;
+}
+
+.Card .DateTimeUser
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.Card .DateTimeUser h4
+{
+    font-size: 0.7em;
+    text-align: right;
+    font-weight: bold;
+    color: white;
+}
+
+.Card .DateTimeUser div
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Card .DateTimeUser div span
+{
+    color: white;
+    font-size: 0.6em;
+}
+
+.Card .DateTimeUser div h3
+{
+    color: #BBF247;
+    font-size: 0.6em;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.Card .Content
+{
+    max-height: 65%;
+    margin-bottom: 10px;
+}
+
+.Card .Content h2
+{
+    font-size: 0.85em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Card .Content p
+{
+    color: white;
+    text-align: justify;
+    font-size: 0.90em;
+}
+
+.Card .LinkArea
+{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.Card .LinkArea div
+{
+    height: 34px;
+    width: 34px;
+    background-color: #BBF247;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.2s ease-in;
+}
+
+.Card .LinkArea div:hover
+{
+    background-color: #83af22;
+    color: #424a50;
+}
+
+.Card .LinkArea div a
+{
+    color: #2D3338;
+}

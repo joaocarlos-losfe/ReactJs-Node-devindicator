@@ -1,0 +1,22 @@
+.CardGroup
+{
+    padding: 0px 30px;
+}
+
+.CardGroup  h2
+{
+    color: #BBF247;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.CardGroup .Cards
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
