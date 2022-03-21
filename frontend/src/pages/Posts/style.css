@@ -1,9 +1,9 @@
-.CardGroup
+.Posts
 {
     padding: 0px 30px;
 }
 
-.CardGroup  h2
+.Posts  h2
 {
     color: #BBF247;
     font-weight: bold;
@@ -11,7 +11,16 @@
     margin-bottom: 15px;
 }
 
-.CardGroup .Cards
+.Posts .SearchArea
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.Posts .Cards
 {
     display: flex;
     flex-direction: row;
@@ -21,7 +30,7 @@
     margin-bottom: 20px;
 }
 
-.CardGroup .swapPages
+.Posts .swapPages
 {
     width: 100%;
     display: flex;
@@ -32,7 +41,7 @@
     margin-bottom: 30px;
 }
 
-.CardGroup .swapPages h3
+.Posts .swapPages h3
 {
     margin-left: 30px;
     margin-right: 30px;
@@ -41,7 +50,7 @@
     font-size: 1em;
 }
 
-.CardGroup .swapPages .btn
+.Posts .swapPages .btn
 {
     margin: 10px;
     font-size: 2em;
@@ -50,7 +59,7 @@
     transition: 0.2s;
 }
 
-.CardGroup .swapPages .btn:hover
+.Posts .swapPages .btn:hover
 {
     color: white;
 }

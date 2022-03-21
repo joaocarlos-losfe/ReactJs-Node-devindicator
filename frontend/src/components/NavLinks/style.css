@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.NavLinks li
+.NavLinks .linkNav
 {
     margin-right: 30px;
     color: #BBF247;
@@ -13,9 +13,10 @@
     transition: 0.3s;
     font-family: 'Merriweather Sans';
     font-weight: bold;
+    text-decoration: none;
 }
 
-.NavLinks li:hover
+.NavLinks .linkNav:hover
 {
     cursor: pointer;
     color: white;

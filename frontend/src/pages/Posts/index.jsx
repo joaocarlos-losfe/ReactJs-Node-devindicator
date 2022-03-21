@@ -1,13 +1,14 @@
 import { settings } from "../../configs/settings"
 import { useFetch } from "../../hooks/useFetch"
-import { Card } from "../Card"
-import { Loading } from "../Loading"
+import { Card } from "../../components/Card"
+import { Loading } from "../../components/Loading"
 import "./style.css"
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 import { useState } from "react"
+import { SearchBar } from "../../components/SearchBar"
 
-export function CardGroup()
+export function Posts()
 {
     const {data, isLoading} = useFetch("post/")
     const [swapPageCount, setSwapPageCount] = useState(1)
@@ -15,10 +16,14 @@ export function CardGroup()
     console.log(data);
 
     return(
-        <div className="CardGroup">
+        <div className="Posts">
             {
                 isLoading ? <Loading/> :
                 <>
+                    <div className="SearchArea">
+                        <SearchBar/>
+                    </div>
+
                     <h2>Sugeridos</h2>
                     <div className="Cards">
                         {

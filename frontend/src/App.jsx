@@ -1,16 +1,27 @@
-import { useState } from "react";
-import { CardGroup } from "./components/CardGroup";
 import { NavBar } from "./components/Navbar";
+import { Posts } from "./pages/Posts";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { About } from "./pages/About";
+import { IndicateContent } from "./pages/IndicateContent";
+import { Contact } from "./pages/Contact";
 
 function App() {
 
-  const currentPage = ["Sugested", "Search"];
-  const [swapPage, setSwapPage] = useState(currentPage[0]);
-
   return (
-    <div className="App">
-      <NavBar/>
-      <CardGroup/>
+    <div className="App">    
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<Posts/>}/>
+          <Route path="/indicate" element={<IndicateContent/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/about" element={<About/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
