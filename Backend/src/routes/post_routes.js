@@ -6,9 +6,12 @@ router.get("/", async (req, res) =>
 {
     try
     {
-        const posters = await PostModel.find({}).limit(9);
-        res.status(200).json({posters});
+        const maxData = 8
+        const posters = await PostModel.find({}).limit(maxData);
+        const count = await PostModel.count({})
+        res.status(200).json({posters, totalpages: (Math.ceil((count / maxData)))});
         console.log('request posts...');
+        
 
     }catch(err)
     {

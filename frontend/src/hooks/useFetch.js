@@ -20,5 +20,5 @@ export function useFetch(url_api_route)
         getItems()
     }, []);
 
-    return { data, isLoading }
+    return { data, isLoading}
 }

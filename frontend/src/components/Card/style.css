@@ -7,107 +7,96 @@
     background-color: #384147;
     border-radius: 8px;
     padding: 10px;
+    margin: 0 auto;
     margin-bottom: 30px;
-    margin-left: 10px;
-    margin-right: 10px
 }
 
 .Card .Top
 {
+    height: 20%;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: top;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
 }
 
 .Card .Top h3
 {
+    font-size: 0.8em;
     color: white;
-    font-size: 0.9em;
 }
 
-.Card .DateTimeUser
+.Card .Top .DateTimeUser h4
+{
+    color: white;
+    font-size: 0.6em;
+}
+
+.Card .Top .DateTimeUser span
+{
+    color: white;
+    font-size: 0.8em;
+}
+.Card .Top .DateTimeUser h3
+{
+    font-size: 0.8em;
+    color: #BBF247;
+}
+
+.Card .DateTimeUser 
 {
     display: flex;
     flex-direction: column;
-}
-
-.Card .DateTimeUser h4
-{
-    font-size: 0.7em;
-    text-align: right;
-    font-weight: bold;
-    color: white;
+    align-items: flex-end;
 }
 
 .Card .DateTimeUser div
 {
     display: flex;
     flex-direction: row;
-    align-items: center;
-}
-
-.Card .DateTimeUser div span
-{
-    color: white;
-    font-size: 0.6em;
-}
-
-.Card .DateTimeUser div h3
-{
-    color: #BBF247;
-    font-size: 0.6em;
-    margin-left: 5px;
-    font-weight: bold;
 }
 
 .Card .Content
 {
-    max-height: 65%;
-    margin-bottom: 10px;
+    height: 40%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .Card .Content h2
 {
-    font-size: 0.85em;
+    font-size: 0.7em;
     text-align: center;
-    margin-bottom: 20px;
+    min-height: 30%;
 }
 
 .Card .Content p
 {
+    font-size: 0.8em;
     color: white;
     text-align: justify;
-    font-size: 0.90em;
+    min-height: 115px;
+    font-weight: bold;
 }
 
-.Card .LinkArea
+.Card .OpenPost
 {
-    width: 100%;
-    display: flex;
-    justify-content: end;
+   display: flex;
+   flex-direction: row;
+   justify-content: end; 
+   width: 100%;
 }
 
-.Card .LinkArea div
+.Card .OpenPost a
 {
-    height: 34px;
-    width: 34px;
-    background-color: #BBF247;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    transition: 0.2s ease-in;
-}
-
-.Card .LinkArea div:hover
-{
-    background-color: #83af22;
-    color: #424a50;
-}
-
-.Card .LinkArea div a
-{
-    color: #2D3338;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    background-color: #BBF247;
+    border-radius: 50px;
+    color: #384147;
 }

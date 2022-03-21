@@ -17,6 +17,40 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin-bottom: 20px;
 }
 
+.CardGroup .swapPages
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+.CardGroup .swapPages h3
+{
+    margin-left: 30px;
+    margin-right: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.CardGroup .swapPages .btn
+{
+    margin: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #BBF247;
+    transition: 0.2s;
+}
+
+.CardGroup .swapPages .btn:hover
+{
+    color: white;
+}

@@ -19,13 +19,12 @@ export function Card(props) {
             <div className='Content'>
                 <h2>{props.title}</h2>
                 <p>{props.description}</p>
-            </div>
 
-            <div className='LinkArea'>
-                <div>
+                <div className='OpenPost'>
                     <a href={props.source_url} target="_blank"><FaExternalLinkAlt/></a>
                 </div>
-            </div>
+
+            </div>            
 
         </div>
     ) 
