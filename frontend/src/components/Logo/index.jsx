@@ -1,6 +1,6 @@
 import './style.css';
 
-import LogoImg from '../../../assets/logo.svg'
+import LogoImg from '../../assets/logo.svg'
 
 export function Logo() {
     return (

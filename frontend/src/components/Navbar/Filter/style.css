@@ -21,6 +21,11 @@
     color: white;
 }
 
+.SearchBar .Filters:focus
+{
+    outline: none;
+}
+
 .SearchBar .Filters option
 {
     font-size: 1.2em;

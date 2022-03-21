@@ -1,6 +1,6 @@
 import './style.css';
 
-import {FaExternalLinkAlt} from "react-icons/fa"
+import {FaLink} from "react-icons/fa"
 
 export function Card(props) {
     return(
@@ -21,7 +21,7 @@ export function Card(props) {
                 <p>{props.description}</p>
 
                 <div className='OpenPost'>
-                    <a href={props.source_url} target="_blank"><FaExternalLinkAlt/></a>
+                    <a href={props.source_url} target="_blank"><FaLink/></a>
                 </div>
 
             </div>            
