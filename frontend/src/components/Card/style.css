@@ -37,11 +37,13 @@
 {
     color: white;
     font-size: 0.8em;
+    
 }
 .Card .Top .DateTimeUser h3
 {
     font-size: 0.8em;
     color: #BBF247;
+    margin-left: 3px;
 }
 
 .Card .DateTimeUser 
