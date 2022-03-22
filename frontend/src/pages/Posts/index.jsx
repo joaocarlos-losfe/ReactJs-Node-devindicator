@@ -64,13 +64,12 @@ export function Posts()
 
     return(
         <div className="Posts">
+            <div className="SearchArea">
+                        <SearchBar/>
+            </div>
             {
                 isLoading ? <Loading/> :
                 <>
-                    <div className="SearchArea">
-                        <SearchBar/>
-                    </div>
-
                     <h2>Sugeridos</h2>
                     <div className="Cards">
                         {
