@@ -12,7 +12,6 @@ export function useFetch(url_api_route)
         const getItems = async () =>
         {
             const result = await axios.get(`${settings.localhost}/${url_api_route}`);
-
             setData(result.data);
             setLoading(false)
         }
@@ -20,5 +19,5 @@ export function useFetch(url_api_route)
         getItems()
     }, []);
 
-    return { data, isLoading}
+    return {data, isLoading, setData}
 }

@@ -2,16 +2,16 @@ const router = require('express').Router();
 const PostModel = require('../models/post');
 const { getCurrentTime } = require('../utils/formated_datetime');
 
-router.get("/", async (req, res) => 
+router.get("/:page", async (req, res) => 
 {
     try
     {
+        console.log('request posts...');
+        const page = parseInt(req.params.page);
         const maxData = 8
-        const posters = await PostModel.find({}).limit(maxData);
+        const posters = await PostModel.find({}).skip(page > 0 ? ((page -1) * maxData) : 0).limit(maxData);
         const count = await PostModel.count({})
         res.status(200).json({posters, totalpages: (Math.ceil((count / maxData)))});
-        console.log('request posts...');
-        
 
     }catch(err)
     {

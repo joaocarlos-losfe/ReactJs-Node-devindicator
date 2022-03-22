@@ -5,15 +5,62 @@ import { Loading } from "../../components/Loading"
 import "./style.css"
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { SearchBar } from "../../components/SearchBar"
+import axios from "axios"
 
 export function Posts()
 {
-    const {data, isLoading} = useFetch("post/")
-    const [swapPageCount, setSwapPageCount] = useState(1)
+    const [swapPage, setSwapPage] = useState(1);
+    let pageNumber = swapPage;
+    const [data, setPost] = useState(null);
+    const [isLoading, setLoading] = useState(true)
 
-    console.log(data);
+    useEffect(() => 
+    {
+        axios.get(`${settings.localhost}/post/${pageNumber}`)
+        .then((response) => 
+        {
+            setPost(response.data);
+        }).finally(()=> setLoading(false));
+
+    }, []);
+
+    function reloadPosts()
+    {
+        setLoading(true);
+        axios.get(`${settings.localhost}/post/${pageNumber}`).then((response) => 
+        {
+            setPost(response.data);
+        }).finally(()=> setLoading(false));
+    }
+    
+    function decrementPage()
+    {
+        if(swapPage == 1)
+            setSwapPage(swapPage)
+        else
+        {
+            setSwapPage(swapPage - 1)
+            pageNumber = swapPage - 1
+            console.log(pageNumber)
+            reloadPosts()
+        }
+            
+    }
+
+    function incrementPage()
+    {
+        if(swapPage == data.totalpages)
+            setSwapPage(swapPage)
+        else
+        {
+            setSwapPage(swapPage + 1)
+            pageNumber = swapPage + 1
+            console.log(pageNumber)
+            reloadPosts()   
+        }
+    }
 
     return(
         <div className="Posts">
@@ -29,7 +76,7 @@ export function Posts()
                         {
                             data.posters.map((item) =>
                             {
-                                return <Card id={item._id} 
+                                return <Card id={item.__id} 
                                         category={item.category}
                                         post_date={item.post_date}
                                         username={item.username}
@@ -42,9 +89,9 @@ export function Posts()
                     </div>
                     
                     <div className="swapPages">
-                        <FaChevronLeft className="btn" id="increment" onClick={()=> setSwapPageCount(swapPageCount == 1 ? swapPageCount : swapPageCount - 1)}/>
-                        <h3>{`página ${swapPageCount} de ${data.totalpages}`}</h3>
-                        <FaChevronRight className="btn" id="decrement" onClick={()=> setSwapPageCount(swapPageCount == data.totalpages ? swapPageCount : swapPageCount + 1)}/>
+                        <FaChevronLeft className="btn" id="incrementPagerement" onClick={decrementPage} />
+                        <h3>{`página ${swapPage} de ${data.totalpages}`}</h3>
+                        <FaChevronRight className="btn" id="decrementPagerement" onClick={incrementPage}/>
                     </div>
                     
                 </>

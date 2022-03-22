@@ -4,7 +4,7 @@ import {FaLink} from "react-icons/fa"
 
 export function Card(props) {
     return(
-        <div id={props._id} className='Card'>
+        <div id={props.__id} className='Card'>
             <div className='Top'>
                 <h3>{props.category}</h3>
                 <div className='DateTimeUser'>
