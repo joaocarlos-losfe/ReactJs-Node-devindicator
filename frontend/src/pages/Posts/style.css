@@ -1,6 +1,6 @@
 .Posts
 {
-    padding: 0px 30px;
+    padding: 0px 30px;   
 }
 
 .Posts  h2
@@ -26,7 +26,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
