@@ -10,7 +10,7 @@ export function SearchBar( { onSubmit } )
 
     const [searchValue, setSeachValue] = useState("");
     const [filterValue, setFilterValue] = useState("todos");
-
+ 
     return(
         
         <div className="SearchBar">

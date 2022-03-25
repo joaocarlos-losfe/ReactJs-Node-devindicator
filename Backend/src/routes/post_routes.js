@@ -5,13 +5,17 @@ const { getCurrentTime } = require('../utils/formated_datetime');
 router.get("/:page", async (req, res) => 
 {
     try
-    {
+    {   
         console.log('request posts...');
+
         const page = parseInt(req.params.page);
         const maxData = 8
-        const posters = await PostModel.find({}).skip(page > 0 ? ((page -1) * maxData) : 0).limit(maxData);
+
+        const posts = await PostModel.find({})
+        .skip(page > 0 ? ((page -1) * maxData) : 0).limit(maxData);
+
         const count = await PostModel.count({})
-        res.status(200).json({posters, totalpages: (Math.ceil((count / maxData)))});
+        res.status(200).json({posts, totalpages: (Math.ceil((count / maxData)))});
 
     }catch(err)
     {
@@ -19,6 +23,49 @@ router.get("/:page", async (req, res) =>
         res.status(500).json(err);
     }
 }); 
+
+
+router.get("/search/:category/:lookingfor", async (req, res) =>
+{
+    try
+    {   
+        console.log("searching...");
+
+        if(req.params.category == "all")
+        {
+            const posts = await PostModel.find(
+            {
+                $or:
+                [
+                    {tags: {$in:[req.params.lookingfor]}},
+                    {category: req.params.category},
+                    {title: req.params.lookingfor}
+                ]
+            }).limit(8)
+        
+            res.status(200).json({posts});
+        }
+        else
+        {
+            const posts = await PostModel.find(
+            {
+                $and:
+                [
+                    {tags: {$in:[req.params.lookingfor]}},
+                    {category: req.params.category},
+                ]
+            }).limit(8)
+        
+            res.status(200).json({posts});
+        }
+        
+    }
+    catch(err)
+    {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 router.get("/by_user/:user_name", async (req, res) => 
 {
@@ -34,27 +81,7 @@ router.get("/by_user/:user_name", async (req, res) =>
     }
 }); 
 
-router.get("/search/:filter", async (req, res) =>
-{
-    try
-    {
-        const posters_by_filter = await PostModel.find(
-            {
-                $or:[
-                        {tags: {$in:[req.params.filter]}}, 
-                        {username: req.params.filter}, 
-                        {category: req.params.filter},
-                        {title: req.params.filter}
-                    ]
-            });
-        res.status(200).json({data: posters_by_filter});
-    }
-    catch(err)
-    {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
+
 
 router.post("/add", async (req, res) =>
 {
