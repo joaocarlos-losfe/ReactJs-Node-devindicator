@@ -1,0 +1,51 @@
+footer {
+    background-color: #384147;
+    padding: 0 3em;
+    margin: 0;
+}
+
+/* footer div {
+    border: 3px solid white;
+} */
+
+
+.OsLinks {
+    width: 100%;
+    height: 90%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    color: white;
+}
+
+.Linkss  {
+    width: 100%;
+    padding: 2em 5em;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.Linkss h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.Barra{
+    margin: 1em 0;
+    padding: 0;
+    width: 70%;
+    border-top: 3px solid greenyellow;
+}
+
+.anos{
+    width: 100%;
+    color: #888888;
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+}
+
+

@@ -1,4 +1,5 @@
 import { NavBar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 import { Posts } from "./pages/Posts";
 import {
   BrowserRouter,
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/about" element={<About/>}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   )
