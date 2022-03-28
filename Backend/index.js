@@ -6,9 +6,10 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const UserRouter = require('./src/routes/user_routes');
-const PostRouter = require('./src/routes/post_routes');
-const DataResouces = require('./src/routes/data_resources');
+const UserRoute = require('./src/routes/userRoute');
+const PostRoute = require('./src/routes/postRoute');
+const ContactRoute = require('./src/routes/contactRoute');
+const ResoucesRoute = require('./src/routes/resourcesRoute');
 
 app.use(function(req, res, next) 
 {
@@ -16,12 +17,13 @@ app.use(function(req, res, next)
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
+
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-
-app.use("/users", UserRouter);
-app.use("/post", PostRouter);
-app.use("/data-resouces", DataResouces);
+app.use("/users", UserRoute);
+app.use("/post", PostRoute);
+app.use("/resouces", ResoucesRoute);
+app.use("/contact", ContactRoute);
 
 app.get("/", (req, res)=>
 {

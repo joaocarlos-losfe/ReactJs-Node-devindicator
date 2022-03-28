@@ -6,7 +6,7 @@ import './style.css';
 
 export function SearchBar( { onSubmit } )
 {
-    const {data, isLoading} = useFetch("data-resouces/categories");
+    const {data, isLoading} = useFetch("resouces/categories");
 
     const [searchValue, setSeachValue] = useState("");
     const [filterValue, setFilterValue] = useState("todos");
