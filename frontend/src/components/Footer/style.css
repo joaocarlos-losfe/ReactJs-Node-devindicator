@@ -8,7 +8,6 @@ footer {
     border: 3px solid white;
 } */
 
-
 .OsLinks {
     width: 100%;
     height: 90%;
@@ -48,4 +47,27 @@ footer {
     justify-content: center;
 }
 
+.autores {
+    margin: 5px;
+}
 
+
+.social {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: center;
+}
+
+.social-icon {
+    margin: 0 10px 5px 0px;
+    color: greenyellow;
+    height: 2em;
+    width: 2em;
+}
+
+
+.Sobre div {
+    margin: 15px;
+}
