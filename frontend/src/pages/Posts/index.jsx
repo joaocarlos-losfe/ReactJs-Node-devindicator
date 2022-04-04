@@ -1,110 +1,119 @@
-import { settings } from "../../configs/settings"
-import { Card } from "../../components/Card"
-import { Loading } from "../../components/Loading"
 import "./style.css"
+import {useState, useEffect} from "react";
+import {PostCard} from "../../components/PostCard";
+import {useFetch} from "../../hooks/HttpRequests";
+import {Loading} from "../../components/Loading";
+import {SeachBar} from "../../components/SeachBar";
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa';
-import { useEffect, useState } from "react"
-import { SearchBar } from "../../components/SearchBar"
-import axios from "axios"
+import axios from "axios";
 
-export function Posts()
-{
-    const [swapPage, setSwapPage] = useState(1); let pageNumber = swapPage;
-    const [data, setPost] = useState(null);
+export const Posts = ()=>{
+
+    const [data, setData] = useState(null);
     const [isLoading, setLoading] = useState(true)
-    
-    function loadPosts()
+    const [postsTitle, setPostsTitle] = useState("sugeridos")
+    const [pageCount, setPageCount] = useState(1)
+    const [page, setPage] = useState(1)
+
+    const [isSearching, setIsSeaching] = useState(false)
+
+
+    const getPages = async (apiUrl) =>
     {
-        setLoading(true);
-        axios.get(`${settings.localhost}/post/${pageNumber}`).then((response) => 
-        {
-            setPost(response.data);
-        }).finally(()=> setLoading(false));
+        setLoading(true)
+        const result = await axios.get(apiUrl);
+        setData(result.data);
+        setLoading(false)
     }
 
-    function searchPosts(searchValue, filterValue)
-    {
-        setLoading(true);
-        axios.get(`${settings.localhost}/post/search/${filterValue}/${searchValue}`).then((response) => 
+    const incrementPageCount = () => {
+        if (pageCount < data.numberOfPages)
         {
-            console.log('procurando ...');
-            console.log(response.data);
-            setPost(response.data);
-        }).finally(()=> setLoading(false));
-    }
-
-    useEffect(() => loadPosts(), []);
-
-    function decrementPage()
-    {
-        if(swapPage > 1)
-        {
-            setSwapPage(swapPage - 1);
-            pageNumber = swapPage - 1;
-            loadPosts();
+            setPageCount(pageCount + 1)
+            getPages(`http://localhost:5000/post/${page + 1}`)
         }
     }
 
-    function incrementPage()
-    {
-        if(swapPage != data.totalpages)
+    const decrementPageCount = () => {
+        if (pageCount > 1 )
         {
-            setSwapPage(swapPage + 1)
-            pageNumber = swapPage + 1
-            loadPosts();
+            setPageCount(pageCount - 1)
+            getPages(`http://localhost:5000/post/${page -1}`)
         }
+
     }
 
-    const handleSubmit = ({searchValue, filterValue}) =>
+    const handleStartSearch = ({category, query}) =>
     {
-        if(searchValue != "")
-            filterValue == "todos" ? searchPosts(searchValue, "all") : searchPosts(searchValue, filterValue);
-        else
-            loadPosts();   
+        setIsSeaching(true)
+        setPostsTitle("resultados da pesquisa")
+        getPages(`http://localhost:5000/post/search/${category}/${query}`)
     }
 
-    return(
-        <div className="Posts">
-            <div className="SearchArea">
-                <SearchBar 
-                onSubmit={handleSubmit}
-                />
-                </div>
+    const returnToSugestedPage = ()=>
+    {
+        setIsSeaching(false)
+        setPageCount(1)
+        setPostsTitle("sugeridos")
+        getPages(`http://localhost:5000/post/${page-1}`)
+    }
+
+
+    //executar na primeira inicialização
+    useEffect(()=>
+    {
+        getPages(`http://localhost:5000/post/${page}`)
+
+    }, [])
+
+    return (
+
+        <main className="Posts">
+            <SeachBar handleSeach={handleStartSearch}  />
             {
                 isLoading ? <Loading/> :
-                <>
-                    <h2>Sugeridos</h2>
-                    <div className="Cards">
-                        {
-                            data.posts.map((item) =>
-                            {
-                                return <Card id={item.__id} 
-                                        category={item.category}
-                                        post_date={item.post_date}
-                                        username={item.username}
-                                        title={item.title}
-                                        description={item.description}
-                                        source_url={item.source_url}
+                    <div>
+                        <h2>{postsTitle}</h2>
+                            <div className="CardsArea">
+                                {
+                                    data.posts.map(item=>{
+                                        return <PostCard
+                                            category={item.category}
+                                            datetime={new Date(item.addDate).toLocaleString('pt-BR')}
+                                            userName={item.userName}
+                                            originalAuthor={item.originalAuthor}
+                                            title={item.title}
+                                            descriptionText={item.descriptionText}
+                                            sourceUrl={item.sourceUrl}
+                                            _id={item._id}
                                         />
-                            })
+                                    })
+                                }
+                            </div>
+
+                        {
+                            isSearching ? <div id = "returnToStartPage"> <button type="button" onClick={returnToSugestedPage}>voltar</button> </div> :
+                                <div className="PagesCount">
+                                    <button id="previousPage" type="button" onClick={decrementPageCount}>
+                                        <FaChevronLeft id="PrevNextIcons"/>
+                                    </button>
+                                    <span>Página</span>
+                                    <span id="currentPage"> {pageCount} </span>
+                                    <span> de </span>
+                                    <span id="totalPage"> {data.numberOfPages} </span>
+                                    <button id="nextPage" type="button" onClick={incrementPageCount}>
+                                        <FaChevronRight id="PrevNextIcons"/>
+                                    </button>
+                                </div>
                         }
+
+
+
+
                     </div>
-                    
-                    {
-                        !data.totalpages ? <></> : 
-
-                        <div className="swapPages">
-                            <FaChevronLeft className="btn" id="incrementPagerement" onClick={decrementPage} />
-                            <h3>{`página ${swapPage} de ${data.totalpages}`}</h3>
-                            <FaChevronRight className="btn" id="decrementPagerement" onClick={incrementPage}/>
-                        </div>
-                    }
-
-                   
-                    
-                </>
             }
-        </div>
+
+        </main>
     )
-} 
+}

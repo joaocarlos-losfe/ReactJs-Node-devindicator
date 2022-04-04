@@ -1,15 +1,16 @@
-import './style.css';
+import "./style.css"
 
 import LogoImg from '../../assets/logo.svg'
-import { Link } from 'react-router-dom';
+
+import { Link } from "react-router-dom";
 
 export function Logo() {
     return (
-        <div className='Logo'>
-            <Link to="/">
+        <Link to="/">
+            <div className='Logo'>
                 <img src={LogoImg}/>
                 <h1>evindicator</h1>
-            </Link>
-        </div>
+            </div>
+        </Link>
     )
 }

@@ -1,84 +1,61 @@
-import { Logo } from '../Logo';
-import './style.css';
+import "./style.css"
 
-import { FaInstagramSquare, FaTwitterSquare, FaLinkedinIn } from "react-icons/fa";
-
-
-export function Footer() {
-    return(
-        <footer>
-            <div className='OsLinks'>
-                
-                <div className='Linkss Sobre'>
-                    
-                    <Logo/>
-                    
-                    <div className='Barra'></div>
-                    
-                    <div>
-                        <p>Sobre Nós</p>
+import {FaGithub, FaLinkedinIn, FaInstagram, FaTwitter, FaGit} from "react-icons/fa"
+import LogoImg from "../../assets/logo.svg"
+import {Logo} from "../Logo";
+export const Footer = () =>{
+    return (
+        <div className="Footer">
+            <footer>
+                <div className="FAbout">
+                    <div className="Title">
+                        <img src={LogoImg}/>
+                        <h1>evindicator</h1>
                     </div>
-                    
-                    <div>
-                       <p>Politicas de privacidade</p> 
-                    </div>
-                    
+                    <h2>sobre nós</h2>
+                    <h2>politicas de provacidade</h2>
                 </div>
 
-                <div className='Linkss Autores'>
-
-                    <h2>Autores</h2>
-
-                    <div className='Barra'></div>
-                    
-                    <div className='autores'>
-                        <p>Bianca Sousa</p>
-                    </div>
-
-                    <div className='autores'>
-                        <p>João Carlos</p>
-                    </div>
-
-                    <div className='autores'>
-                        <p>Joanny Eva</p>
-                    </div>
-
-                    <div className='autores'>
-                        <p>Matheus Victor</p>
-                    </div>
-    
-                </div>
-                
-                
-                <div className='Linkss Redes Sociais'>
-
-                    <h2>Redes Sociais</h2>
-                    
-                    <div className='Barra'></div>
-                    
-                    <div className='social'>
-                        <FaInstagramSquare className='social-icon'/>
-                        <p>Twitter</p>
-                    </div>
-                    
-                    <div className='social'>
-                        <FaTwitterSquare className='social-icon'/>
-                        <p>Instagram</p>
-                    </div>
-                    
-                    <div className='social'>
-                        <FaLinkedinIn className='social-icon'/>
-                        <p>Linkedin</p> 
-                    </div>
-                   
+                <div className="FAutors">
+                    <h1 className="Title">Autores</h1>
+                    <h2>Bianca</h2>
+                    <h2>João Carlos</h2>
+                    <h2>Joanny Eva</h2>
+                    <h2>Matheus Victor</h2>
                 </div>
 
-            </div>
+                <div className="FSocial">
+                    <h1 className="Title">Social</h1>
+                    <ul>
+                        <li>
+                            <div className="IconConteiner">
+                                <FaTwitter className="SocialIcon"/>
+                            </div>
+                            Twiter
+                        </li>
+                        <li>
+                            <div className="IconConteiner">
+                                <FaInstagram className="SocialIcon"/>
+                            </div>
+                            Instagram
+                        </li>
+                        <li>
+                            <div className="IconConteiner">
+                                <FaLinkedinIn className="SocialIcon"/>
+                            </div>
+                            Linkedin
+                        </li>
 
-            <div className='anos'>
-                <p>Devindicator® 2021-2022</p>
-            </div>
-
-        </footer>
-    ) 
+                        <li>
+                            <div className="IconConteiner">
+                            <FaGithub className="SocialIcon"/>
+                            </div>
+                            Github
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+            <h3>Devindicator® 2021-{new Date().getFullYear()}</h3>
+        </div>
+    )
 }

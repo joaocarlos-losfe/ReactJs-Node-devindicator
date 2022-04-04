@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const User = mongoose.model('User', {
-    username:{type: String, require: [true]},
-    email:{type: String, require: [true]},
-    pass: {type: String, require: [true]},
-    account_creation_date: {type: Date, require: [true]},
-});
+    accountCreationDate: {type: Date, default: Date.now},
+    userName: {type: String, unique: true, require: [true], min: 3, max: 20},
+    email: {type: String, unique: true, require: [true]},
+    password: {type: String, require: [true], min: 6},
+})
 
-module.exports = User;
+module.exports = User

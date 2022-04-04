@@ -1,12 +1,11 @@
-.NavBar
+nav
 {
-    background-color: #384147;;
-    height: 36px;
-    padding: 12px 30px;
+    height: 8vh;
+    background-color: #384147;
+    padding: 5px 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 28px;
-
+    justify-content: space-between;
+    margin-bottom: 20px;
 }

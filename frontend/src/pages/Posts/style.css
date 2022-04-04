@@ -1,65 +1,93 @@
-.Posts
-{
-    padding: 0px 30px;   
+.Posts{
+    padding: 5px 20px;
 }
 
-.Posts  h2
+.Posts h2
 {
     color: #BBF247;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
-.Posts .SearchArea
-{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.4rem;
     margin-bottom: 20px;
 }
 
-.Posts .Cards
-{
+.Posts .CardsArea{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.Posts .swapPages
-{
-    width: 100%;
+.PagesCount{
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: row;
-    height: 30px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+
     margin-bottom: 30px;
 }
 
-.Posts .swapPages h3
-{
-    margin-left: 30px;
-    margin-right: 30px;
-    color: white;
-    font-weight: bold;
-    font-size: 1em;
+.PagesCount span {
+    margin: 2px;
 }
 
-.Posts .swapPages .btn
-{
-    margin: 10px;
-    font-size: 2em;
-    font-weight: bold;
+
+#PrevNextIcons{
     color: #BBF247;
-    transition: 0.2s;
+    transition: 0.2s ease;
+    font-size: 1.9rem;
 }
 
-.Posts .swapPages .btn:hover
-{
-    color: white;
+.PagesCount button{
+    border-radius: 100%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444B4D;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 200ms ease-in;
+
+}
+
+.PagesCount button:hover{
+    border: 2px solid #BBF247;
+}
+
+.PagesCount button:active{
+    background-color: #22272c;
+}
+
+
+#returnToStartPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#returnToStartPage button{
+    border-radius: 20px;
+    border: none;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444B4D;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 200ms ease-in;
+    color:  #BBF247;
+    transition: 0.2s ease;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+#returnToStartPage button:hover{
+    border: 2px solid #BBF247;
 }

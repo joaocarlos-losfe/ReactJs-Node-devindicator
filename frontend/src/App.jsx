@@ -1,29 +1,30 @@
-import { NavBar } from "./components/Navbar";
-import { Footer } from "./components/Footer";
-import { Posts } from "./pages/Posts";
+import './mainStyle.css'
+import {Navbar} from "./components/Navbar";
+import {Posts} from "./pages/Posts";
+import {About} from "./pages/About";
+import {Contact} from "./pages/Contact";
+import {Indicate} from "./pages/Indicate";
+
 import {
-  BrowserRouter,
-  Routes,
-  Route,
+    BrowserRouter,
+    Routes,
+    Route,
 } from "react-router-dom";
-import { About } from "./pages/About";
-import { IndicateContent } from "./pages/IndicateContent";
-import { Contact } from "./pages/Contact";
+import {Footer} from "./components/Footer";
 
 function App() {
-
   return (
-    <div className="App">    
-      <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route path="/" element={<Posts/>}/>
-          <Route path="/indicate" element={<IndicateContent/>}/>
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="/about" element={<About/>}/>
-        </Routes>
-        <Footer/>
-      </BrowserRouter>
+    <div className="App">
+        <BrowserRouter>
+            <Navbar/>
+            <Routes>
+                <Route path="/" element={<Posts/>}/>
+                <Route path="/indicate" element={<Indicate/>}/>
+                <Route path="/contact" element={<Contact/>}/>
+                <Route path="/about" element={<About/>}/>
+            </Routes>
+            <Footer/>
+        </BrowserRouter>
     </div>
   )
 }

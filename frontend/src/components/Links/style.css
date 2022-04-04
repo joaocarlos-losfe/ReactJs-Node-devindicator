@@ -1,28 +1,24 @@
-.NavLinks ul
-{
+.Links{
     display: flex;
     flex-direction: row;
+    color: #BBF247;
     align-items: center;
 }
 
-.NavLinks .linkNav
-{
-    margin-right: 30px;
-    color: #BBF247;
-    font-size: 1.1em;
-    transition: 0.3s;
-    font-family: 'Merriweather Sans';
-    font-weight: bold;
+.Links .link{
     text-decoration: none;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+    color: #BBF247;
 }
 
-.NavLinks .linkNav:hover
-{
-    cursor: pointer;
+.Links .link:hover{
     color: white;
 }
 
-.NavLinks button
+.Links button
 {
     height: 40px;
     width: 40px;
@@ -32,14 +28,19 @@
     transition: 0.3s ease-in;
 }
 
-.NavLinks button:hover
+.Links .li{
+    font-size: 1.0rem;
+}
+
+.Links button:hover
 {
     background-color: #22272C;
 }
 
-.NavLinks button #user_icon
+.Links button #user_icon
 {
     color: white;
-    font-size: 1.2em;
-      
+    font-size: 1.25em;
 }
+
+

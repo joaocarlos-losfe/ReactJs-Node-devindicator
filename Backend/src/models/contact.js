@@ -1,11 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const Contact = mongoose.model('Contact', {
-    full_name: {type: String, require: [true]},
-    email: {type: String, require: [true]},
-    mensages: {type: String, require: [true]},
-    contact_date: {type: Date, require: [true]},
-    was_answered: {type: Boolean, require: [true]},
-});
+    fullName: {type: String, require: [true]},
+    email: {type: String, require: [true], unique:true},
+    messages: {type: []}
+})
 
-module.exports = Contact;
+module.exports = Contact

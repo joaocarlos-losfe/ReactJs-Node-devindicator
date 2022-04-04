@@ -1,0 +1,107 @@
+.PostCard{
+    height: 280px;
+    width: 280px;
+    background-color: #384147;
+    padding: 10px;
+    border-radius: 2%;
+    margin: 10px;
+}
+
+.PostCard .Top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.PostCard .Top div {
+    text-align: end;
+}
+
+.PostCard .Top h3 {
+    color: white;
+    font-weight: bold;
+}
+
+.PostCard .Top div h3 {
+    font-size: 0.6rem;
+    font-weight: normal;
+}
+
+.PostCard .Top div h2 {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.PostCard .Top div span
+{
+    color: #BBF247;
+}
+
+.PostCard h1{
+    text-align: center;
+    max-width: 90%;
+    font-size: 0.8rem;
+    margin: 0 auto;
+    color: #BBF247;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.TitleArea{
+    height: 70px;
+}
+
+#autor
+{
+    font-size: 0.8rem;
+    text-align: center;
+    color: white;
+}
+
+#autor span
+{
+    color: white;
+    font-weight: bold;
+}
+
+.PostCard p{
+    text-align: justify;
+    min-height: 112px;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    line-height: 1rem;
+}
+
+.PostCard #OpenContent
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: baseline;
+}
+
+.PostCard #OpenContent a
+{
+    width: 36px;
+    height: 36px;
+    padding: 5px;
+    display: flex;
+    background-color: #BBF247;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    transition: 0.3s ease;
+}
+
+.PostCard #OpenContent a:hover
+{
+    background-color: #9fd130;
+}
+
+.PostCard #OpenContent #linkIcon
+{
+    font-size: 1.3rem;
+    color: #22272c;
+}

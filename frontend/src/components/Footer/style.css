@@ -1,73 +1,72 @@
-footer {
+.Footer{
     background-color: #384147;
-    padding: 0 3em;
-    margin: 0;
+    padding-bottom: 30px;
 }
 
-/* footer div {
-    border: 3px solid white;
-} */
-
-.OsLinks {
-    width: 100%;
-    height: 90%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    color: white;
-}
-
-.Linkss  {
-    width: 100%;
-    padding: 2em 5em;
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.Linkss h2 {
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-.Barra{
-    margin: 1em 0;
-    padding: 0;
-    width: 70%;
-    border-top: 3px solid greenyellow;
-}
-
-.anos{
-    width: 100%;
-    color: #888888;
-    padding: 1em 0;
-    display: flex;
-    justify-content: center;
-}
-
-.autores {
-    margin: 5px;
-}
-
-
-.social {
-    margin: 5px;
+footer{
+    padding: 25px 20px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.FAbout, .FAutors, .FSocial{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
     align-items: center;
-    justify-self: center;
+    width: 200px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.FAbout div
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
-.social-icon {
-    margin: 0 10px 5px 0px;
-    color: greenyellow;
-    height: 2em;
-    width: 2em;
+.FAbout div img{
+    height: 20px;
+    margin-right: 3px;
 }
 
+.Title{
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #BBF247;
+    padding-bottom: 10px;
+    width: 140px;
+    text-align: center;
+}
 
-.Sobre div {
-    margin: 15px;
+.FSocial li{
+    display: flex;
+    align-items: center;
+}
+
+.IconConteiner{
+    height: 26px;
+    width: 26px;
+    background-color: #BBF247;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    border-radius: 100%;
+}
+
+footer h2, li{
+    color: #B5B5B5;
+    margin-bottom: 10px;
+}
+
+.SocialIcon{
+    color: #22272c;
+}
+
+.Footer h3{
+    color: white;
+    text-align: center;
 }

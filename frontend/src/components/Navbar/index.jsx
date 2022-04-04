@@ -1,13 +1,12 @@
-import { Logo } from '../Logo';
-import { NavLinks } from '../NavLinks';
-import './style.css';
+import  "./style.css"
+import {Logo} from "../Logo";
+import {Links} from "../Links";
 
-export  function NavBar() {
-
-    return(        
-        <div className='NavBar'>
+export const Navbar = () => {
+    return (
+        <nav>
             <Logo/>
-            <NavLinks/>
-        </div>
-    ) 
+            <Links/>
+        </nav>
+    )
 }

@@ -1,0 +1,86 @@
+.SearchForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.SearchForm label
+{
+    color: #A1A1A5;
+    font-size: 1.2rem;
+}
+
+.SearchForm select{
+    margin-left: 10px;
+    height: 30px;
+    width: 140px;
+    border: 2px solid #BBF247;
+    border-radius: 15px;
+    padding: 0px 10px;
+    background-color: #8B8B8B;
+    color: white;
+}
+
+.SearchForm select:focus
+{
+    outline: none;
+}
+
+.SearchForm select option
+{
+    font-size: 1.2rem;
+    width: 100px;
+    font-family: 'Merriweather Sans';
+}
+
+.SeachInput{
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    margin-left: 20px;
+    border-radius: 15px;
+    border: 2px solid #BBF247;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SeachInput input
+{
+    width: 90%;
+    height: 90%;
+    border: none;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+
+.SeachInput input:focus
+{
+    outline: none;
+}
+
+.SeachInput button{
+    height: 34px;
+    width: 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: #BBF247;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+    transform: translateX(0.5px);
+}
+
+.SeachInput button:hover{
+    background-color: #9fd130;
+}
+
+#seachIcon{
+    font-size: 1.2rem;
+    color: #22272c;
+}
+
