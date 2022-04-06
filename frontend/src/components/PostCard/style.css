@@ -67,7 +67,7 @@
 
 .PostCard p{
     text-align: justify;
-    min-height: 112px;
+    min-height: 128px;
     color: white;
     margin-bottom: 10px;
     font-size: 0.9rem;
@@ -84,8 +84,8 @@
 
 .PostCard #OpenContent a
 {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
     padding: 5px;
     display: flex;
     background-color: #BBF247;
