@@ -1,0 +1,19 @@
+.RequestLogin{
+    padding: 5px 20px;
+}
+
+.RequestLogin h1, h2{
+    color: white;
+
+    margin-bottom: 20px;
+}
+
+.RequestLogin .Link{
+    text-decoration: none;
+    color: #BBF247;
+    transition: 0.2s ease;
+}
+
+.RequestLogin .Link:hover{
+    color: #9fd130;
+}
