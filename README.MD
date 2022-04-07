@@ -8,18 +8,25 @@
 
 <h3>backend</h3>
     <ul>
+        <li>nodejs: <a>https://nodejs.org/en </a></li>
         <li>mongoose: <a>https://mongoosejs.com/docs/guide.html</a></li>
         <li>bcrypt: <a>https://www.npmjs.com/package/bcrypt</a></li>
         <li>express: <a>https://expressjs.com/pt-br/</a></li>
         <li>nodemon: <a>https://www.npmjs.com/package/nodemon</a></li>
     </ul>
+    
+<h4>para rodar o backend execute: "npm start". Caso seja a primeira execução, execute antes o comando: "npm i" para baixar as dependencias </h4>
+    
 <h3>frontend</h3>
- <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-</ul>
+    <ul>
+        <li>axios: <a>https://axios-http.com/ptbr/docs/intro</a> </li>
+        <li>react-icons: </li>
+        <li>react-router-dom: </li>
+        <li>vite: </li>
+    </ul>
+
+<h4>para rodar o frontend execute: "npm run dev". Caso seja a primeira execução, execute antes o comando: "npm i" para baixar as dependencias </h4>
+
 
 
 <h2>capturas de tela<h2/>

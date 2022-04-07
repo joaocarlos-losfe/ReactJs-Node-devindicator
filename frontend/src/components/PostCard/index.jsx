@@ -1,8 +1,10 @@
 import "./style.css"
 
-import {AiOutlineLink} from "react-icons/ai"
+import {AiOutlineLink, AiOutlineDelete} from "react-icons/ai"
+import {FaRegEdit} from "react-icons/fa"
+import {MdOutlineModeEditOutline} from "react-icons/md"
 
-export const PostCard = ({category, datetime, userName, originalAuthor, title, descriptionText, sourceUrl, _id})=>{
+export const PostCard = ({category, datetime, userName, originalAuthor, title, descriptionText, sourceUrl, _id, displayAction})=>{
     return (
         <div key={_id} className="PostCard">
             <div className="Top">
@@ -20,7 +22,18 @@ export const PostCard = ({category, datetime, userName, originalAuthor, title, d
 
             <p>{descriptionText}</p>
 
-            <div id="OpenContent">
+            <div className="CardActions">
+
+                <div style={ !displayAction? {display: "none"} : {}} >
+                    <button type="button">
+                        <MdOutlineModeEditOutline id="linkIcon"/>
+                    </button>
+
+                    <button type="button">
+                        <AiOutlineDelete id="linkIcon"/>
+                    </button>
+                </div>
+
                 <a id={_id} href={sourceUrl} target="_blank">
                     <AiOutlineLink id="linkIcon"/>
                 </a>

@@ -8,7 +8,6 @@ export const Links = () => {
 
     return (
         <ul className="Links">
-            <Link className="link" to="/">home</Link>
             <Link className="link" to="indicate">indicar</Link>
             <Link className="link" to="contact">contato</Link>
             <Link className="link" to="about">sobre</Link>
