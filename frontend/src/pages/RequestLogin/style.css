@@ -1,11 +1,32 @@
 .RequestLogin{
     padding: 5px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
 }
 
-.RequestLogin h1, h2{
-    color: white;
+.RequestLogin img{
+    height: 100px;
+    margin-bottom: 40px;
+} 
 
+.RequestLogin h1{
+    color: white;
+    line-height: 1.3rem;
     margin-bottom: 20px;
+}
+
+.RequestLogin div{
+    text-align: center;
+}
+
+.RequestLogin h2{
+    margin-bottom: 10px;
+    color: white;
+    font-size: 0.9rem;
 }
 
 .RequestLogin .Link{
