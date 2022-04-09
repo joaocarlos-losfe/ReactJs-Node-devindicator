@@ -24,6 +24,10 @@ export const PostCard = ({category, datetime, userName, originalAuthor, title, d
 
             <div className="CardActions">
 
+                <a id={_id} href={sourceUrl} target="_blank">
+                    <AiOutlineLink id="linkIcon"/>
+                </a>
+
                 <div style={ !displayAction? {display: "none"} : {}} >
                     <button type="button">
                         <MdOutlineModeEditOutline id="linkIcon"/>
@@ -34,9 +38,7 @@ export const PostCard = ({category, datetime, userName, originalAuthor, title, d
                     </button>
                 </div>
 
-                <a id={_id} href={sourceUrl} target="_blank">
-                    <AiOutlineLink id="linkIcon"/>
-                </a>
+                
             </div>
 
         </div>
