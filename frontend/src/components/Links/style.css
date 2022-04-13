@@ -43,4 +43,26 @@
     font-size: 1.25em;
 }
 
+.Links div{
+    background-color: #719c13;
+    height: 40px;
+    min-width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: 0.2s ease;
+    padding: 0px 10px;
+}
+
+.Links div:hover{
+    background-color: #567710;
+    
+}
+
+.Links div .link{
+    color: white;
+    margin: 0 auto;
+}
 

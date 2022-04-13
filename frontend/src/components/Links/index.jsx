@@ -1,9 +1,8 @@
 import './style.css'
-import {UserMenu} from "../UserMenu";
 
 import { Link } from "react-router-dom";
 
-export const Links = () => {
+export const Links = ({username, _id}) => {
     const isLoged = false
 
     return (
@@ -11,7 +10,8 @@ export const Links = () => {
             <Link className="link" to="indicate">indicar</Link>
             <Link className="link" to="contact">contato</Link>
             <Link className="link" to="about">sobre</Link>
-            <UserMenu/>
+            {isLoged ? <div> <Link className="link" to="login">{username}</Link> </div> : <Link className="link" to="login">login</Link>}
+
         </ul>
     )
 }

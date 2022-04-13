@@ -18,11 +18,11 @@ import {Footer} from "./components/Footer";
 function App() {
 
   const isLogged = false
-
+  
   return (
     <div className="App">
         <BrowserRouter>
-            <Navbar/>
+            <Navbar />
             <Routes>
                 <Route path="/" element={<Posts/>}/>
                 <Route path="/indicate" element={isLogged? <Indicate/> : <RequestLogin/>}/>

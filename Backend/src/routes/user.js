@@ -1,18 +1,20 @@
 const bcrypt = require('bcrypt')
 const route = require('express').Router()
 const UserModel = require('../models/user')
-const {use} = require("bcrypt/promises");
 
-const hashPassword = async (password) => await bcrypt.hash(password, 10)
+const hashPassword = async (password) =>  await bcrypt.hash(password, 10)
+
 const comparePassword = async (userBodyPass, userHashPass) => await bcrypt.compare(userBodyPass, userHashPass)
 
 route.post('/new', async (req, res) =>{
+
+    console.log(req.body)
 
     try {
         const user = {
             userName: req.body.userName,
             email: req.body.email,
-            password: await hashPassword(req.body.pass)
+            password: await hashPassword(req.body.password)
         }
 
         console.table(user)
@@ -33,20 +35,28 @@ route.post('/new', async (req, res) =>{
     }catch(e){
         res.status(500).json({
             message: 'erro no servidor...',
-            inserted: false
+            inserted: false,
+            e
         })
+
+        console.log(e)
     }
 })
 
-route.get('/:username', async (req, res) =>
+route.get('/:email/:pass', async (req, res) =>
 {
    try
    {
-       const user = await UserModel.findOne({userName: req.params.username})
+        console.log("request")
+
+        console.log(req.params.email)
+        console.log(req.params.pass)
+
+        const user = await UserModel.findOne({email: req.params.email})
 
        if(user)
        {
-           const correctPass = await comparePassword(req.body.password, user.password)
+           const correctPass = await comparePassword(req.params.pass, user.password)
 
            if(correctPass)
            {
@@ -60,8 +70,8 @@ route.get('/:username', async (req, res) =>
            }
        }
 
-       res.status(401).json({
-           message: 'usuário ou senha invalido',
+       res.status(200).json({
+           message: 'usuário ou senha invalidos !',
            isFind: false,
        })
 
