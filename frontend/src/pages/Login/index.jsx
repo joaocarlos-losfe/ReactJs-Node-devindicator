@@ -3,13 +3,15 @@ import "./style.css"
 import { Link } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 
 import {Loading} from "../../components/Loading";
 
-export const Login = () =>{
+export const Login = ({userLogin}) =>{
 
-    
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
     const [isLoading, setLoading] = useState(false)
@@ -33,9 +35,8 @@ export const Login = () =>{
             else{
                 
                 const {_id, userName, email, accountCreationDate} = result.data.user
-
-                console.table({_id, userName, email, accountCreationDate})
-
+                userLogin(result.data.user)
+                navigate('/')
             }
             
         }

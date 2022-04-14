@@ -4,3 +4,94 @@
     background-color: #22272C;
     max-width: 1366px;
 }
+
+.Login{
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Login h1{
+    text-align: center;
+    color: #BBF247;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.Login form{
+    border: 2px solid #BBF247;
+    width: 350px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background-color: #384147;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Login form input{
+    width: 100%;
+    height: 36px;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: none;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.Login button{
+    width: 150px;
+    height: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #BBF247;
+    transition: 0.2s ease;
+    font-weight: bold;
+    color: #2D3338;
+    margin-bottom: 20px;
+}
+
+.Login button:hover{
+    background-color: #9fd130;
+}
+
+form h2{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+form .Link{
+    text-decoration: none;
+    color: #BBF247;
+    transition: 0.2s ease;
+}
+
+form .Link:hover{
+    color: #9fd130;
+}
+
+.UserComponent{
+    text-decoration: none;
+    color: #BBF247;
+    background-color: #22272c;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.UserComponent #iconUserdata{
+    color: white;
+    margin-right: 5px;
+    font-size: 1.3rem;
+}

@@ -1,12 +1,14 @@
 import  "./style.css"
-import {Logo} from "../Logo";
-import {Links} from "../Links";
 
-export const Navbar = ({username, _id}) => {
+import { useEffect, useState } from "react";
+
+export const Navbar = () => {
+
+    const [user, setUser] = useState(null)
+
     return (
         <nav>
-            <Logo/>
-            <Links/>
+            
         </nav>
     )
 }
