@@ -112,4 +112,20 @@ route.get('/search/:category/:query', async (req, res) => {
 
 })
 
+route.get('/get-user-post/:username', async (req, res) => 
+{
+    try{
+    
+        const posts = await PostModel.find({userName:req.params.username})
+        res.status(200).json({posts, total_posts: posts.length})
+
+    }catch(e)
+    {
+        res.status(501).json({
+            message: 'erro no servidor',
+        })
+        console.log(e)
+    }
+})
+
 module.exports = route

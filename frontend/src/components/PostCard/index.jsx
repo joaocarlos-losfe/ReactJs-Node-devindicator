@@ -15,7 +15,7 @@ export const PostCard = ({category, datetime, userName, originalAuthor, title, d
                 </div>
             </div>
 
-            <div className="TitleArea">
+            <div className="TitleArea" >
                 <h1>{title}</h1>
                 <h2 id="autor">fonte original: <span>{originalAuthor}</span></h2>
             </div>

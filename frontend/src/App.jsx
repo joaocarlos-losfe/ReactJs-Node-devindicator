@@ -1,11 +1,12 @@
 import './mainStyle.css'
 import { Navbar } from "./components/Navbar";
+
 import { Posts } from "./pages/Posts";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { Indicate } from "./pages/Indicate";
 import { Login } from './pages/Login';
-import { UserData } from './pages/UserData';
+import { UserPage } from './pages/UserPage';
 
 import { CreateAccount } from './pages/CreateAccount';
 import { RequestLogin } from './pages/RequestLogin';
@@ -27,10 +28,7 @@ function App() {
   const [userData, setUserData] = useState(null) 
   
   const userLogin = (user_data) => {
-
-    console.table(user_data)
     setUserData(user_data)
-    
   }
 
   return (
@@ -57,7 +55,9 @@ function App() {
                 <Route path="/about" element={<About/>}/>
                 <Route path="/login" element={<Login userLogin={userLogin}/>}/>
                 <Route path="/create-account" element={<CreateAccount/>} />
-                <Route path="/user-page" element={userData? <UserData user_id={userData._id} /> : <RequestLogin/>  } />
+                <Route 
+                  path="/user-page" 
+                  element={userData? <UserPage _id={userData._id} userName={userData.userName} email={userData.email} account_creation_date={userData.accountCreationDate} /> : <RequestLogin/>  } />
             </Routes>
             <Footer/>
         </BrowserRouter>

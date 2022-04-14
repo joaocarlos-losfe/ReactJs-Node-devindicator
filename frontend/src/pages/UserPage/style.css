@@ -1,0 +1,57 @@
+.UserPage{
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.UserPage #userImg{
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.UserPage #title{
+
+    color: #BBF247;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.UserPage #title span{
+    color: white;
+}
+
+.UserPage .otherInfo{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #BBF247;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+
+    margin-bottom: 30px;
+}
+
+.UserPage .otherInfo h2{
+    color: white;
+    font-size: 0.8rem;
+    margin: 0px 10px;
+    
+}
+
+
+.UserPage .Posts h1{
+    color: white;
+    text-align: center;
+}
+
+.UserPage .UserPosts .CardsArea{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
