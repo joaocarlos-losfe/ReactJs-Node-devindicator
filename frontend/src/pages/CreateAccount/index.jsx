@@ -5,19 +5,10 @@ import { useState } from "react"
 
 import {Popup} from "../../components/Popup";
 import {SimpleMessage} from "../../components/SimpleMessage";
+
 import { Loading } from "../../components/Loading";
+import axios from "axios";
 
-const customMessages = {
-    title: {
-        valid: "Conta criada",
-        invalid: "Erro ao criar a conta !"
-    },
-
-    description:{
-        valid: "Conta criada com sucesso. Proceda a pagina de login para acessar sua conta",
-        invalid: "Verifique se todos os campos estão preenchidos ou se são validos !"
-    }
-}
 
 export const CreateAccount = ()=>{
 
@@ -27,24 +18,75 @@ export const CreateAccount = ()=>{
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
 
-    const [isLoading, setLoading] = useState(true)
-    const [isOpen, setIsOpen] = useState(false);
+    const [isLoading, setLoading] = useState(false)
+    
+    const [validData, setvalidData] = useState(true)
+    const [message, setMessage] = useState("")
 
-    const [validAccount, setValidAccount] = useState(true)
+    let temp_pass = pass
 
-    const togglePopup = () => {
-        setIsOpen(!isOpen);
+    const handlePassword = (value) => {
+        temp_pass = value
+        setPass(temp_pass)
+        
+        if(temp_pass.length < 4)
+        {
+            setvalidData(false)
+            setMessage(`Senha muito curta. defina uma senha com no minimo 4 caracteres`)
+        }
+        else
+            setvalidData(true)
     }
 
-    const sendAccount = async (apiUrl) => {
+    const sendNewUser = async () =>{
 
+        const response = await axios.post("http://localhost:5000/user/new", {
+            "userName": userName, 
+            "email": email, 
+            "password": pass
+        })
+
+        return response
     }
 
-    const handleSubmit = ()=>{
+    const handleSubmit = async ()=>{
 
         console.log({userName, email, pass}) // validar conta antes
-        togglePopup()
-        setValidAccount(true)
+
+        setvalidData(true)
+        setLoading(true)
+
+        if(userName.length < 4)
+        {
+            setMessage("Usuário invalido")
+            setvalidData(false)
+        }
+        else if(email.length < 6)
+        {
+            setMessage("Email invalido")
+            setvalidData(false)
+        }
+        else if(pass.length < 4)
+        {
+            setMessage(`Senha muito curta. defina uma senha com no minimo 4 caracteres`)
+            setvalidData(false)
+        }
+        else{
+
+            const resp = await sendNewUser()
+
+            if(!resp.data.inserted)
+            {
+                setMessage("Erro ao criar a conta. Usuário já existente. Verifique o nome de usuário ou email")
+                setvalidData(false)
+            }
+            else{
+                setMessage("Conta criada com sucesso")
+                setvalidData(true)
+                navigate("/login")
+            }
+        }
+
         setLoading(false)
 
     }
@@ -54,9 +96,13 @@ export const CreateAccount = ()=>{
             <form>
                 <h1>Criar conta</h1>
 
+                {validData? <></> :<span style={{color:"yellow", marginBottom: "20px", textAlign: "center", fontSize: "0.9rem"}}>{message}</span> }
+                
+                {isLoading? <Loading/>: <></> }
+
                 <input value={userName} onChange={e => setUserName(e.target.value)} type="text" placeholder="Nome de usuário"/>
                 <input value={email} onChange={e => setEmail(e.target.value)}  type="email" placeholder="Seu email"/>
-                <input value={pass} onChange={e => setPass(e.target.value)}  type="password" placeholder="Sua senha"/>
+                <input value={pass} onChange={e => handlePassword(e.target.value)}  type="password" placeholder="Sua senha"/>
 
                 <div>
                     <button onClick={handleSubmit} type="button">Criar</button>
@@ -64,17 +110,6 @@ export const CreateAccount = ()=>{
                 </div>
 
             </form>
-
-            {isOpen && <Popup
-                content={isLoading? <Loading/> :
-                    <SimpleMessage title={validAccount? customMessages.title.valid :
-                        customMessages.title.invalid}
-                    description={validAccount? customMessages.description.valid:
-                        customMessages.description.invalid}
-                /> }
-                bColor = {validAccount ? "#BBF247" : "yellow"}
-                handleClose={togglePopup}
-            />}
 
         </div>
     )

@@ -25,7 +25,7 @@ route.post('/new', async (req, res) =>{
                 inserted: true
             })
         }).catch(()=>{
-            res.status(500).json({
+            res.status(200).json({
                 message: 'erro ao criar usuário',
                 inserted: false
             })

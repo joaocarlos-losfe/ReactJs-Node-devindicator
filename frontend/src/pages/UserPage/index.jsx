@@ -54,7 +54,6 @@ export const UserPage = ({_id, userName, email, account_creation_date})=>
                 }
                 </div>
                 
-
             </div>
 
         </div>
