@@ -9,9 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <title>Devindicator</title>
   </head>
-  <body>
+  <body onresize="verTamanho()">
     
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      function verTamanho(){
+        if (document.body.clientWidth > 900) {
+          document.getElementsByClassName('Links')[0].style.display = 'block';
+        } else {
+          document.getElementsByClassName('Links')[0].style.display = 'none';
+        }
+      }
+    </script>
   </body>
 </html>

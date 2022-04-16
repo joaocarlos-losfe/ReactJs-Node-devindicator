@@ -1,6 +1,6 @@
 nav
 {
-    height: 8vh;
+    height: 4em;
     background-color: #384147;
     padding: 5px 20px;
     display: flex;
@@ -78,3 +78,53 @@ nav
     margin: 0 auto;
 }
 
+.MenuLateral {
+    display: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    margin-right: 1em;
+}
+
+
+@media (max-width: 900px) {
+
+    .Links {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        border: 1px solid white;
+        background-color: #22272C;
+        width: 100%;
+        right: 0;
+        top: 4.5em;
+        z-index: 1;
+    }
+
+    .Links ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .link {
+        padding-top:20px;
+        padding-bottom: 20px;
+        height: 80%;
+        width: 100%;
+    }
+
+    .link:hover { 
+        border: 1px solid white;
+    }
+
+
+    .MenuLateral {
+        display: block;
+    }
+
+
+}

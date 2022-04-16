@@ -23,6 +23,13 @@ import {
 import {Footer} from "./components/Footer";
 import { useState } from 'react';
 
+
+import {FiMenu} from "react-icons/fi"
+
+import {AiOutlineClose} from "react-icons/ai"
+
+
+
 function App() {
 
   const [userData, setUserData] = useState(null) 
@@ -31,21 +38,56 @@ function App() {
     setUserData(user_data)
   }
 
+  function Mudarestado() {
+    let el = 'Links';
+    let display = document.getElementsByClassName(el)[0].style.display;
+    if(display == "none"){
+        document.getElementsByClassName(el)[0].style.display = 'block';
+        document.getElementsByClassName('IconFechar')[0].style.display = 'block';
+        document.getElementsByClassName('IconAparecer')[0].style.display = 'none';
+    } else {
+        document.getElementsByClassName(el)[0].style.display = 'none';
+        document.getElementsByClassName('IconFechar')[0].style.display = 'none';
+        document.getElementsByClassName('IconAparecer')[0].style.display = 'block';
+    }
+    console.log('Clicou!')
+  }
+
+  function verificaTamanho(){
+    if (document.body.clientWidth < 900) {
+      //executar o código aqui dentro
+      /* document.getElementsByClassName('Links')[0].style.display = 'none'; */
+      console.log('Passou aqui')
+      return 'none'
+    }
+  }
+
+
+
   return (
     <div className="App">
         <BrowserRouter>
 
             <nav>
               <Logo/>
-              <ul className="Links">
-                  <Link className="link" to="indicate">indicar</Link>
-                  <Link className="link" to="contact">contato</Link>
-                  <Link className="link" to="about">sobre</Link>
-                  {
-                    userData? <Link className="UserComponent" to="/user-page"><FaRegUserCircle id='iconUserdata'/> Olá {userData.userName}</Link> : 
-                    <Link className="link" to="login"> login</Link> 
-                  }
-              </ul>
+
+              <div className="MenuLateral" onClick={Mudarestado}>
+                <FiMenu className='IconAparecer' style={{display:'block'}} />
+                <AiOutlineClose className='IconFechar' style={{display:'none'}} />
+              </div>
+              
+              <div className="Links" style={{display:verificaTamanho()}}>
+                <ul>
+                    <Link className="link" to="indicate">indicar</Link>
+                    <Link className="link" to="contact">contato</Link>
+                    <Link className="link" to="about">sobre</Link>
+                    {
+                      userData? <Link className="UserComponent" to="/user-page"><FaRegUserCircle id='iconUserdata'/> Olá {userData.userName}</Link> : 
+                      <Link className="link" to="login"> login</Link> 
+                    }
+                </ul>
+              </div>
+                
             </nav>
 
             <Routes>
