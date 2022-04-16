@@ -1,0 +1,84 @@
+.Indicate{
+    padding: 5px 20px;
+}
+
+.Indicate h2 {
+    color: #BBF247;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.Indicate form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.Indicate form .Input{
+    width: 350px;
+    height: 30px;
+    background-color: white;
+    border-radius: 15px;
+    border: none;
+    border: 2px solid #BBF247;
+    margin-bottom: 30px;
+    padding: 1px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Indicate form .Input input, textarea{
+    border: none;
+    width: 100%;
+    height: 100%;
+    color: #8B8B8B;
+    margin-left: 5px;
+}
+
+.Indicate form .Input .iconImg{
+    color: #8B8B8B;
+}
+
+.Indicate .Select{
+    display: flex;
+    justify-content: left;
+    width: 370px;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.Indicate .Select select{
+    width: 200px;
+    background-color: white;
+    border-radius: 15px;
+    border: none;
+    border: 2px solid #BBF247;
+    height: 30px;
+    padding: 1px 10px;
+    color: #8B8B8B;
+
+}
+
+.Indicate form textarea{
+    margin: 0 auto;
+    width: 350px;
+    height: 110px;
+    background-color: white;
+    border-radius: 15px;
+    border: none;
+    border: 2px solid #BBF247;
+    margin-bottom: 30px;
+    padding: 5px 10px;
+    resize: none;
+    
+}
+
+.Indicate span{
+    color: yellow;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    width: 350px;
+}

@@ -13,6 +13,7 @@ export const Posts = ()=>{
     const [data, setData] = useState(null);
     const [isLoading, setLoading] = useState(true)
     const [postsTitle, setPostsTitle] = useState("sugeridos")
+    const [category, setCategory] = useState('nenhum')
     const [pageCount, setPageCount] = useState(1)
     const [page, setPage] = useState(1)
 
