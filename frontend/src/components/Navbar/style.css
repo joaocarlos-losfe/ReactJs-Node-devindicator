@@ -10,7 +10,7 @@ nav
     margin-bottom: 20px;
 }
 
-.Links{
+.Links ul {
     display: flex;
     flex-direction: row;
     color: #BBF247;
