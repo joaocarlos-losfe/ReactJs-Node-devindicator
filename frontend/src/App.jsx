@@ -92,7 +92,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<Posts/>}/>
-                <Route path="/indicate" element={userData? <Indicate/> : <RequestLogin/>}/>
+                <Route path="/indicate" element={userData? <Indicate user_name={userData.userName} /> : <RequestLogin/>}/>
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/login" element={<Login userLogin={userLogin}/>}/>

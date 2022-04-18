@@ -22,9 +22,9 @@ route.post('/new', async (req, res) => {
             }
 
             await PostModel.create(post).then(()=>{
-                res.status(201).json({message: 'post adicionado', inserted: true})
+                res.status(201).json({message: "Post adicionado com sucesso ✔", inserted: true})
             }).catch((e)=> {
-                res.status(401).json({message: `erro ao adicionar post`, inserted: false, e})
+                res.status(200).json({message: "Já existe um post adicionado com esses dados por outro usuário!", inserted: false, e})
             })
 
         }
