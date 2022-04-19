@@ -4,7 +4,12 @@ import {AiOutlineLink, AiOutlineDelete} from "react-icons/ai"
 import {FaRegEdit} from "react-icons/fa"
 import {MdOutlineModeEditOutline} from "react-icons/md"
 
-export const PostCard = ({category, datetime, userName, originalAuthor, title, descriptionText, sourceUrl, _id, displayAction})=>{
+export const PostCard = ({category, datetime, userName, originalAuthor, title, descriptionText, sourceUrl, _id, displayAction, handleDeletePost})=>{
+    
+    const deletePost = () => {
+        handleDeletePost({_id})
+    }
+    
     return (
         <div key={_id} className="PostCard">
             <div className="Top">
@@ -33,7 +38,7 @@ export const PostCard = ({category, datetime, userName, originalAuthor, title, d
                         <MdOutlineModeEditOutline id="linkIcon"/>
                     </button>
 
-                    <button type="button">
+                    <button type="button" onClick={deletePost} >
                         <AiOutlineDelete id="linkIcon"/>
                     </button>
                 </div>

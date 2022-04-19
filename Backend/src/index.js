@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors');
 
 require('dotenv').config()
 
@@ -9,11 +10,7 @@ const UserRoute = require('./routes/user')
 const PostRoute = require('./routes/post')
 const ResourcesRoute = require('./routes/resources')
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-    next()
-})
+app.use(cors({origin: '*'}));
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())

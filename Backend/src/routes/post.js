@@ -128,4 +128,29 @@ route.get('/get-user-post/:username', async (req, res) =>
     }
 })
 
+route.delete('/:post_id', async (req, res) =>
+{
+    console.log(req.params.post_id)
+
+    try{
+
+        const deleted = await PostModel.deleteOne({"_id": req.params.post_id})
+
+        console.log(deleted)
+
+        if(deleted.deletedCount == 1)
+            res.json({message: "Post deletado com sucesso" , deleted: true, post_id: req.params.id})
+        else
+            res.json({message: "Post não encontrado" , deleted: false, post_id: req.params.id})
+
+    }catch(e)
+    {
+        res.status(501).json({
+            message: 'erro no servidor',
+        })
+        console.log(e)
+    }
+
+})
+
 module.exports = route

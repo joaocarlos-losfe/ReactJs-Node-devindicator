@@ -11,14 +11,28 @@ export const UserPage = ({_id, userName, email, account_creation_date})=>
     const [data, setData] = useState(null);
     const [isLoading, setLoading] = useState(true)
 
-    
-    useEffect( async ()=>
-    {
+    const reloadUserPosts = async () => {
         setLoading(true)
         const result = await axios.get(`http://localhost:5000/post/get-user-post/${userName}`);
         setData(result.data);
         setLoading(false)
         console.log(data.posts)
+    }
+
+    const deletePost = async (post) =>{
+        console.log(post._id)
+        await axios.delete(`http://localhost:5000/post/${post._id}`)
+    }
+    
+    const handleDeletePost = async (post) =>{
+        
+        await deletePost(post)
+        await reloadUserPosts()
+    }
+
+    useEffect( async ()=>
+    {
+        await reloadUserPosts()
 
     }, [])
 
@@ -49,6 +63,7 @@ export const UserPage = ({_id, userName, email, account_creation_date})=>
                                 sourceUrl={item.sourceUrl}
                                 _id={item._id}
                                 displayAction={true}
+                                handleDeletePost = {handleDeletePost}
                         />
                     })
                 }

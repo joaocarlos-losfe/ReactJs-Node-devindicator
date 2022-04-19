@@ -20,13 +20,7 @@ export const SeachBar = ({handleSeach}) =>{
             {
                 isLoading ? <Loading/> :
                     <form className="SearchForm">
-                        <label>
-                            filtro
-                            <select value={category} onChange={(e)=>{setCategory(e.target.value)}}>
-                                {data.categories.map((item)=>{return <option key={item}>{item}</option>} )}
-                            </select>
-                        </label>
-
+                        
                         <div className="SeachInput">
                             <input value={query} onChange={(e) => {setQuery(e.target.value)}} placeholder="Digite para pesquisar"/>
                             <button type="button" onClick={startSearch}>

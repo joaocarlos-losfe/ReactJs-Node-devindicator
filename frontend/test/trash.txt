@@ -1,0 +1,6 @@
+<label>
+    filtro
+    <select value={category} onChange={(e)=>{setCategory(e.target.value)}}>
+        {data.categories.map((item)=>{return <option key={item}>{item}</option>} )}
+    </select>
+</label>
