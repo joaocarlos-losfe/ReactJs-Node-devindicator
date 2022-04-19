@@ -4,7 +4,7 @@ const Post = mongoose.model('Post', {
     addDate: {type: Date, default: Date.now},
     userName: {type: String, require: [true]},
     originalAuthor: {type: String, require: [true]},
-    category: {type: String, require: [true], enum: ['video', 'artigo', 'projeto', 'plataforma', 'noticia', 'livro']},
+    category: {type: String, require: [true], enum: ['video', 'artigo', 'projeto', 'plataforma', 'noticia', 'livro', "software", "dica", "framwork"]},
     tags: {type: [{type: String, lowercase: true}]},
     descriptionText: {type: String, require:[true], unique: true},
     title: {type: String, require: [true], unique: true},
