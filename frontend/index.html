@@ -15,10 +15,16 @@
     <script type="module" src="/src/main.jsx"></script>
     <script>
       function verTamanho(){
-        if (document.body.clientWidth > 900) {
+        /* console.log(window.innerWidth) */
+        if (window.innerWidth > 900) {
           document.getElementsByClassName('Links')[0].style.display = 'block';
+          document.getElementsByClassName('MenuLateral')[0].style.display = 'none';
         } else {
           document.getElementsByClassName('Links')[0].style.display = 'none';
+
+          document.getElementsByClassName('MenuLateral')[0].style.display = 'block';
+          document.getElementsByClassName('IconFechar')[0].style.display = 'none';
+          document.getElementsByClassName('IconAparecer')[0].style.display = 'block';
         }
       }
     </script>
