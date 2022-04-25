@@ -41,22 +41,12 @@ function App() {
   function Mudarestado() {
     let el = 'Links';
     let display = document.getElementsByClassName(el)[0].style.display;
-
-    
-
-    if(document.body.clientWidth > 900){
-      console.log('Ihh')
-      return
-    }
-
     if(display == "none"){
         document.getElementsByClassName(el)[0].style.display = 'block';
-        /* document.getElementsByClassName('MenuLateral')[0].style.display = 'block'; */
         document.getElementsByClassName('IconFechar')[0].style.display = 'block';
         document.getElementsByClassName('IconAparecer')[0].style.display = 'none';
     } else {
         document.getElementsByClassName(el)[0].style.display = 'none';
-        /* document.getElementsByClassName('MenuLateral')[0].style.display = 'block'; */
         document.getElementsByClassName('IconFechar')[0].style.display = 'none';
         document.getElementsByClassName('IconAparecer')[0].style.display = 'block';
     }
@@ -64,25 +54,14 @@ function App() {
   }
 
   function verificaTamanho(){
-    if (window.innerWidth > 900) {
+    if (document.body.clientWidth < 900) {
       //executar o código aqui dentro
       /* document.getElementsByClassName('Links')[0].style.display = 'none'; */
+      console.log('Passou aqui')
       return 'none'
-    } else {
-      return 'block'
     }
   }
 
-
-  function verificaTamanho2(){
-    if (window.innerWidth < 900) {
-      //executar o código aqui dentro
-      /* document.getElementsByClassName('Links')[0].style.display = 'none'; */
-      return 'none'
-    } else {
-      return 'block'
-    }
-  }
 
 
   return (
@@ -92,12 +71,12 @@ function App() {
             <nav>
               <Logo/>
 
-              <div className="MenuLateral" onClick={Mudarestado} style={{display:verificaTamanho()}} >
+              <div className="MenuLateral" onClick={Mudarestado}>
                 <FiMenu className='IconAparecer' style={{display:'block'}} />
                 <AiOutlineClose className='IconFechar' style={{display:'none'}} />
               </div>
               
-              <div className="Links" style={{display:verificaTamanho2()}} onClick={{Mudarestado}}>
+              <div className="Links" style={{display:verificaTamanho()}}>
                 <ul>
                     <Link className="link" to="indicate">indicar</Link>
                     <Link className="link" to="contact">contato</Link>

@@ -46,7 +46,7 @@ route.get('/:page', async (req, res) => {
 
     try {
         const page = parseInt(req.params.page)
-        const maximumPosts = 8
+        const maximumPosts = 9
         const numberOfDocuments = await PostModel.count({})
 
         const posts = await PostModel.find({})
