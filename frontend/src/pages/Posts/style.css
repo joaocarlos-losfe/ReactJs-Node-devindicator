@@ -1,5 +1,6 @@
 .Posts{
     padding: 5px 20px;
+    min-height: 400px;
 }
 
 .Posts h2
@@ -16,6 +17,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
+
 }
 
 .PagesCount{
