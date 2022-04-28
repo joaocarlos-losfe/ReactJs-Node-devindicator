@@ -1,19 +1,20 @@
 nav
 {
-    height: 4em;
-    background-color: #384147;
+    height: 3.4em;
+    background-color: #f9f9f9;
     padding: 5px 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .Links ul {
     display: flex;
     flex-direction: row;
-    color: #BBF247;
+    color: #3c3c3c;
     align-items: center;
 }
 
@@ -23,11 +24,11 @@ nav
     font-size: 1.2rem;
     transition: 0.2s ease-in;
     cursor: pointer;
-    color: #BBF247;
+    color: #3c3c3c;
 }
 
 .Links .link:hover{
-    color: white;
+    color: #fb6b11;
 }
 
 .Links button
@@ -74,13 +75,13 @@ nav
 }
 
 .Links div .link{
-    color: white;
+    color: #fb6b11;
     margin: 0 auto;
 }
 
 .MenuLateral {
     display: none;
-    color: white;
+    color: #fb6b11;
     font-size: 2em;
     cursor: pointer;
     margin-right: 1em;
@@ -94,11 +95,12 @@ nav
         display: none;
         position: absolute;
         border: 1px solid white;
-        background-color: #22272C;
+        background-color: white;
         width: 100%;
         right: 0;
         top: 4.5em;
         z-index: 1;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 
     .Links ul {
@@ -118,7 +120,7 @@ nav
     }
 
     .link:hover { 
-        border: 1px solid white;
+        border: none;
     }
 
 
@@ -127,4 +129,11 @@ nav
     }
 
 
+}
+
+#loginLink{
+    color: #3c3c3c;
+    font-weight: bold;
+    padding: 5px 15px;
+    border: 2px solid #5a5a5a;
 }

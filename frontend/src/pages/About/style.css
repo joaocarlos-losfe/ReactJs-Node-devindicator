@@ -3,24 +3,43 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    
 }
-.About img{
-    height: 180px;
+
+.About .Logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
     margin-bottom: 20px;
+} 
+
+
+
+.About .Logo h1{
+    font-size: 2rem;
+    color: #fb6b11;
+    font-weight: bold;
+}
+
+.About .Logo img{
+    height: 100px;
+    width: 100px;
 }
 
 .About p{
     max-width: 70%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 15px;
-    background-color: #384147;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: justify;
+    color: rgb(94, 94, 94);
+    font-weight: 500;
+
 }
 
-.About p h1{
-    color: #BBF247;
+.About span{
+    color: #fb6b11;
     font-weight: bold;
     display: inline-block;
 }

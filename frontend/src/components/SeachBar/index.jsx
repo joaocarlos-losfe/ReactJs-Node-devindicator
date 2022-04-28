@@ -16,19 +16,14 @@ export const SeachBar = ({handleSeach}) =>{
     }
 
     return (
-        <>
-            {
-                isLoading ? <Loading/> :
-                    <form className="SearchForm">
+        <form className="SearchForm">
                         
-                        <div className="SeachInput">
-                            <input value={query} onChange={(e) => {setQuery(e.target.value)}} placeholder="Digite para pesquisar"/>
-                            <button type="button" onClick={startSearch}>
-                                <FiSearch id="seachIcon"/>
-                            </button>
-                        </div>
-                    </form>
-            }
-        </>
+        <div className="SeachInput">
+            <input value={query} onChange={(e) => {setQuery(e.target.value)}} placeholder="Digite para pesquisar"/>
+            <button type="button" onClick={startSearch}>
+                <FiSearch id="seachIcon"/>
+            </button>
+        </div>
+    </form>
     )
 }

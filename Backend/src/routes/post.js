@@ -1,7 +1,6 @@
 const route = require('express').Router()
 const PostModel = require('../models/post')
 const UserModel = require('../models/user')
-const ResourceModel = require('../models/resources')
 const ResourcesModel = require("../models/resources");
 
 route.post('/new', async (req, res) => {
@@ -46,7 +45,7 @@ route.get('/:page', async (req, res) => {
 
     try {
         const page = parseInt(req.params.page)
-        const maximumPosts = 9
+        const maximumPosts = 6
         const numberOfDocuments = await PostModel.count({})
 
         const posts = await PostModel.find({})

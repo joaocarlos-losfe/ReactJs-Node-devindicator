@@ -1,5 +1,5 @@
 .Footer{
-    background-color: #384147;
+    background-color: white;
     padding-bottom: 30px;
     margin-top: 20px;
 }
@@ -29,18 +29,21 @@ footer{
     flex-direction: row;
 }
 
-.FAbout div img{
-    height: 20px;
-    margin-right: 3px;
-}
+
 
 .Title{
-    color: white;
+    color: #fb6b11;
     margin-bottom: 10px;
     font-size: 1.2rem;
-    border-bottom: 2px solid #BBF247;
+    border-bottom: 2px solid black;
     padding-bottom: 10px;
     width: 140px;
+    text-align: center;
+    font-weight: 600;
+    text-align: center;
+}
+
+.Title h1{
     text-align: center;
 }
 
@@ -52,7 +55,7 @@ footer{
 .IconConteiner{
     height: 26px;
     width: 26px;
-    background-color: #BBF247;
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,15 +64,16 @@ footer{
 }
 
 footer h2, li{
-    color: #B5B5B5;
+    color: black;
     margin-bottom: 10px;
 }
 
 .SocialIcon{
-    color: #22272c;
+    color: #fb6b11;
 }
 
 .Footer h3{
-    color: white;
+    color: black;
     text-align: center;
+    font-weight: bold;
 }

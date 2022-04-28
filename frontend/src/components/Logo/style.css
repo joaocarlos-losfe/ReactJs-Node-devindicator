@@ -2,15 +2,23 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    border: none;
 }
 
-.Logo img {
-    height: 40px;
+.Logo img{
+    height: 46px;
+    width: 46px;
 }
 
-.Logo h1
+#logotext
 {
-    color: white;
+    color: #fb6b11;
     font-size: 1.2rem;
     margin-left: 4px;
+    transition: 0.1s ease;
+    font-weight: bold;
+}
+
+#logotext:hover{
+    font-weight: normal;
 }

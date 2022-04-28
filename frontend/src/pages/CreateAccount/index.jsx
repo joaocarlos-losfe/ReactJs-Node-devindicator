@@ -96,7 +96,7 @@ export const CreateAccount = ()=>{
             <form>
                 <h1>Criar conta</h1>
 
-                {validData? <></> :<span style={{color:"yellow", marginBottom: "20px", textAlign: "center", fontSize: "0.9rem"}}>{message}</span> }
+                {validData? <></> :<span style={{color:"red", marginBottom: "20px", textAlign: "center", fontSize: "0.9rem", fontWeight: "bold"}}>{message}</span> }
                 
                 {isLoading? <Loading/>: <></> }
 

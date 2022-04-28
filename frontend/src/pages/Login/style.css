@@ -7,30 +7,32 @@
 
 .Login h1{
     text-align: center;
-    color: #BBF247;
+    color: #fb6b11;
     font-weight: bold;
     margin-bottom: 30px;
+    font-size: 1.2rem;
 }
 
 .Login form{
-    border: 2px solid #BBF247;
+    border: none;
     width: 350px;
     margin-bottom: 20px;
-    border-radius: 15px;
-    background-color: #384147;
+    border-radius: 5px;
+    background-color: white;
     padding: 20px 10px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .Login form input{
     width: 100%;
     height: 36px;
-    background-color: white;
-    border-radius: 15px;
+    background-color: #e6e6e6;
+    border-radius: 5px;
     margin-bottom: 30px;
     border: none;
     padding: 0px 10px;
@@ -44,30 +46,30 @@
     margin-right: 15px;
     border: none;
     border-radius: 4px;
-    background-color: #BBF247;
+    background-color: #fb6b11;
     transition: 0.2s ease;
     font-weight: bold;
-    color: #2D3338;
+    color: white;
     margin-bottom: 20px;
 }
 
 .Login button:hover{
-    background-color: #9fd130;
+    background-color: #cf5508;
 }
 
-form h2{
-    color: white;
+form .LoginArea h2{
+    color: #8B8B8B;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-form .Link{
+form .LoginArea .Link{
     text-decoration: none;
-    color: #BBF247;
+    color: #fb6b11;
     transition: 0.2s ease;
 }
 
-form .Link:hover{
-    color: #9fd130;
+form .LoginArea .Link:hover{
+    color: #cf5508;
 }
 

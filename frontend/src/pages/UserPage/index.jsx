@@ -39,7 +39,7 @@ export const UserPage = ({_id, userName, email, account_creation_date})=>
     return (
         <div className="UserPage">
             <FaRegUserCircle id="userImg"/>
-            <h1 id="title"><span>Olá</span> {userName}</h1>
+            <h1 id="title">{userName}</h1>
 
             <div className="otherInfo">
                 <h2>seu email: {email}</h2>
@@ -48,7 +48,7 @@ export const UserPage = ({_id, userName, email, account_creation_date})=>
             </div>
             
             <div className="Posts">
-                <h1>Seus posts</h1>
+                <h1 id="TitlePost">Suas postagens</h1>
                 <div className="CardsArea">
                 {
                     isLoading? <></> : data.posts.map(item=>

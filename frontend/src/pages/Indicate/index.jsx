@@ -33,7 +33,7 @@ export const Indicate = ({user_name}) =>{
     const [title, setTitle] = useState("")
 
     const [message, setMessage] = useState("")
-    const [colorMessage, setColorMessage] = useState("yellow")
+    const [colorMessage, setColorMessage] = useState("red")
 
     const [descriptionLen, setDescriptionLen] = useState(0)
     const [descriptionText, setDescriptionText] = useState("")
@@ -62,7 +62,7 @@ export const Indicate = ({user_name}) =>{
 
     const handleSubmitContent = async () =>{
 
-        setColorMessage("yellow")
+        setColorMessage("red")
         setSendContentLoading(true)
     
         if(url == "" || originalAutor == "" || tags == "" || category== "" || title== "" || descriptionText == "")
@@ -74,7 +74,7 @@ export const Indicate = ({user_name}) =>{
             const response = await submitContent()
 
             if(response.data.inserted)
-                setColorMessage("#BBF247")
+                setColorMessage("black")
             
             setMessage(response.data.message)
         }
@@ -85,9 +85,9 @@ export const Indicate = ({user_name}) =>{
 
     return (
         <div className="Indicate"> 
-            <h2>Indicação de conteúdo</h2>
             
             <form>
+                <h1>Indicação de conteúdo</h1>
                 <div className="Input">
                     <AiOutlineLink className="iconImg"/>
                     <input value={url} onChange={e => setUrl(e.target.value)} type="text" placeholder="Copie e cole a url do conteúdo que deseja indicar*" />
@@ -132,7 +132,7 @@ export const Indicate = ({user_name}) =>{
                 </div>
 
                 <div style={{marginTop : "10px"}}>
-                    {message === "" ? <></> : <span style={{color:colorMessage, textAlign:"center"}} >{message}</span>}
+                    {message === "" ? <></> : <span style={{color:colorMessage, textAlign:"center", fontSize:"1rem"}} >{message}</span>}
                     {sendContentLoading ? <Loading/> : <></>}
                 </div>
 

@@ -1,10 +1,11 @@
 .PostCard{
     height: 280px;
     width: 280px;
-    background-color: #384147;
-    padding: 10px;
-    border-radius: 2%;
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 5px;
     margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 .PostCard .Top{
@@ -19,23 +20,28 @@
 }
 
 .PostCard .Top h3 {
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
 .PostCard .Top div h3 {
-    font-size: 0.6rem;
-    font-weight: normal;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #1e1e1e;
 }
 
 .PostCard .Top div h2 {
-    color: white;
+    color: #828282;
     font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: end;
 }
 
 .PostCard .Top div span
 {
-    color: #BBF247;
+    color: black;
+    
 }
 
 .PostCard h1{
@@ -43,35 +49,37 @@
     max-width: 90%;
     font-size: 0.8rem;
     margin: 0 auto;
-    color: #BBF247;
+    color: #fb6b11;
     font-weight: bold;
     margin-bottom: 10px;
+    line-height: 1rem;
 }
 
 .TitleArea{
-    height: 70px;
+    height: 50px;
 }
 
 #autor
 {
     font-size: 0.8rem;
     text-align: center;
-    color: white;
+    color: #828282;
 }
 
 #autor span
 {
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
 .PostCard p{
     text-align: justify;
-    min-height: 128px;
-    color: white;
+    min-height: 140px;
+    color: rgb(94, 94, 94);
     margin-bottom: 10px;
     font-size: 0.9rem;
     line-height: 1rem;
+    font-weight: 500;
 }
 
 .PostCard .CardActions
@@ -92,9 +100,9 @@
 .CardActions div button{
     margin-left: 10px;
     border: none;
-    background-color: #BBF247;
+    background-color: white;
     padding: 5px;
-    border-radius: 50px;
+    border-radius: 5px;
     transition: 0.3s ease;
     height: 30px;
     width: 30px;
@@ -102,7 +110,7 @@
 }
 
 .CardActions div button:hover{
-    background-color: #9fd130;
+    background-color: #cacaca;
 }
 
 
@@ -114,16 +122,17 @@
     padding: 5px;
     display: flex;
     border: none;
-    background-color: #BBF247;
+    background-color: white;
     justify-content: center;
     align-items: center;
-    border-radius: 100%;
+    border-radius: 5px;
     transition: 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 .PostCard .CardActions a:hover
 {
-    background-color: #9fd130;
+    background-color: #cacaca;
 }
 
 .PostCard .CardActions #linkIcon

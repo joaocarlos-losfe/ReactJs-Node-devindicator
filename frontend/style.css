@@ -25,10 +25,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
-    background-color: #22272c;
-    font-family: 'Merriweather Sans', sans-serif;
+    background-color: #5d5f61;
+    font-family: 'Poppins', sans-serif;
     font-weight: normal;
 }
+
 ol, ul {
     list-style: none;
 }

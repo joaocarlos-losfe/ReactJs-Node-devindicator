@@ -8,9 +8,8 @@ export const Footer = () =>{
         <div className="Footer">
             <footer>
                 <div className="FAbout">
-                    <div className="Title">
-                        <img src={LogoImg}/>
-                        <h1>evindicator</h1>
+                    <div>
+                        <h1 className="Title">Devindicator</h1>
                     </div>
                     <h2>sobre nós</h2>
                     <h2>politicas de provacidade</h2>

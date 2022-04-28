@@ -61,9 +61,8 @@ export const Contact = () =>{
 
     return (
         <div className="Contact">
-            <h2>Contato</h2>
-
             <form>
+                <h1>Entre em contato</h1>
                 <input value={name} onChange={(e)=>setName(e.target.value)} type="text" placeholder="Seu nome*"/>
                 <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Email*"/>
                 <textarea value={message} onChange={(e)=>setMessage(e.target.value)} id="messageText" type="text" placeholder="Mensagem*"/>
@@ -82,7 +81,7 @@ export const Contact = () =>{
                     description={validContact? customMessages.description.valid:
                         customMessages.description.invalid}
                 /> }
-                bColor = {validContact ? "#BBF247" : "yellow"}
+                bColor = {validContact ? "#cf5508" : "white"}
                 handleClose={togglePopup}
             />}
 

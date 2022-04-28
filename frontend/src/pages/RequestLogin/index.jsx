@@ -7,14 +7,14 @@ export const RequestLogin = () => {
     return (
         <div className="RequestLogin">
 
-            <img src={LogoImg}/>
+            <h1>Mensagem do Devindicator !</h1>
 
-            <h1>
+            <p>
                 Olá, o devindicator proporciona que qualquer usuário possa 
             indicar conteudos para outros usuarios. Mas para isso, é nessario 
             que voçê faça login no sistema caso possua uma conta, ou crie uma caso não tenha uma 😁
               
-            </h1>
+            </p>
 
             <div>
                 <h2>não fez login? <Link to="/login" className="Link">Logar</Link> </h2>

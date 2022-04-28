@@ -1,11 +1,14 @@
 import "./style.css"
 
-import LogoImg from "../../assets/logo.svg"
+import LogoImg from "../../assets/Logo.svg"
 
 export const About = () => {
     return (
         <div className="About">
-            <img src={LogoImg}/>
+            <div className="Logo">
+                <img src={LogoImg}/>
+                <h1>Devindicator</h1>
+            </div>
 
             <p>
                 De acordo com o Search Engine Watch em 2003 já existiam mais de dois bilhões de sites na Internet, mas
@@ -17,7 +20,7 @@ export const About = () => {
             </p>
             <br/>
             <p>
-                O <h1>DevIndicator</h1> foi pensado para situar a busca de informações através de ferramentas que unem e
+                O <span>DevIndicator</span> foi pensado para situar a busca de informações através de ferramentas que unem e
                 promovem a indicação de sites, livros, vídeos, artigos, projetos e dicas com o olhar voltado para programadores
                 ou estudantes e profissionais da área de tecnologia. Essas ferramentas seriam responsáveis por classificar e
                 catalogar diversos conteúdos em listas que seriam incrementadas diariamente, o que facilitaria ao usuário o

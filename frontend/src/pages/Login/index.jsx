@@ -54,8 +54,10 @@ export const Login = ({userLogin}) =>{
 
                 <button type="button" onClick={handleSubmitLogin}>Entrar</button>
 
-                <h2>Não possui uma conta? <Link to="/create-account" className="Link">Criar</Link> </h2>
-                <h2>Esqueceu seu login? <Link to="/" className="Link">Recuperar</Link> </h2>
+                <div className="LoginArea">
+                    <h2>Não possui uma conta? <Link to="/create-account" className="Link">Criar</Link> </h2>
+                    <h2>Esqueceu seu login? <Link to="/" className="Link">Recuperar</Link> </h2>
+                </div>
 
             </form>
 

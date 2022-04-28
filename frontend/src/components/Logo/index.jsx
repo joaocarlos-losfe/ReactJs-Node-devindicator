@@ -6,11 +6,9 @@ import { Link } from "react-router-dom";
 
 export function Logo() {
     return (
-        <Link to="/">
-            <div className='Logo'>
-                <img src={LogoImg}/>
-                <h1>evindicator</h1>
-            </div>
-        </Link>
+        <div className="Logo">
+            <img src={LogoImg}/>
+            <Link id="logotext" style={{textDecoration:"none"}} to="/">Devindicator</Link>
+        </div>
     )
 }

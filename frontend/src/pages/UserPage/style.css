@@ -7,45 +7,50 @@
 }
 
 .UserPage #userImg{
-    color: white;
+    color: black;
     font-size: 3rem;
     margin-bottom: 15px;
 }
 
 .UserPage #title{
 
-    color: #BBF247;
+    color: #fb6b11;
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
 .UserPage #title span{
-    color: white;
+    color: #838383;
 }
 
 .UserPage .otherInfo{
     display: flex;
     flex-direction: row;
-    border: 1px solid #BBF247;
+    border: 1px solid #fb6b11;
     align-items: center;
     justify-content: space-around;
     padding: 10px;
-
+    color: black;
     margin-bottom: 30px;
 }
 
 .UserPage .otherInfo h2{
-    color: white;
-    font-size: 0.8rem;
+    color: black;
+    font-size: 0.9rem;
     margin: 0px 10px;
-    
 }
 
 
 .UserPage .Posts h1{
-    color: white;
+    color: #fb6b11;
     text-align: center;
+}
+
+#TitlePost{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;   
 }
 
 .UserPage .UserPosts .CardsArea{
