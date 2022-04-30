@@ -7,9 +7,11 @@ import { Contact } from "./pages/Contact";
 import { Indicate } from "./pages/Indicate";
 import { Login } from './pages/Login';
 import { UserPage } from './pages/UserPage';
-
 import { CreateAccount } from './pages/CreateAccount';
 import { RequestLogin } from './pages/RequestLogin';
+import { EditPost } from './pages/EditPost';
+
+
 import {FaRegUserCircle} from 'react-icons/fa'
 
 import {Logo} from "./components/Logo";
@@ -27,7 +29,7 @@ import { useState } from 'react';
 import {FiMenu} from "react-icons/fi"
 
 import {AiOutlineClose} from "react-icons/ai"
-
+import { ErrorPage } from './pages/ErrorPage';
 
 
 function App() {
@@ -91,15 +93,18 @@ function App() {
             </nav>
 
             <Routes>
-                <Route path="/" element={<Posts/>}/>
-                <Route path="/indicate" element={userData? <Indicate user_name={userData.userName} /> : <RequestLogin/>}/>
-                <Route path="/contact" element={<Contact/>}/>
-                <Route path="/about" element={<About/>}/>
-                <Route path="/login" element={<Login userLogin={userLogin}/>}/>
-                <Route path="/create-account" element={<CreateAccount/>} />
-                <Route 
-                  path="/user-page" 
-                  element={userData? <UserPage _id={userData._id} userName={userData.userName} email={userData.email} account_creation_date={userData.accountCreationDate} /> : <RequestLogin/>  } />
+              <Route path="*" element = {<ErrorPage/>} />
+              <Route path="/" element={<Posts/>}/>
+              <Route path="/indicate" element={userData? <Indicate user_name={userData.userName} /> : <RequestLogin/>}/>
+              <Route path="/contact" element={<Contact/>}/>
+              <Route path="/about" element={<About/>}/>
+              <Route path="/login" element={<Login userLogin={userLogin}/>}/>
+              <Route path="/create-account" element={<CreateAccount/>} />
+              <Route path="/edit-post/:_id" element={<EditPost/>} /> 
+                  
+              <Route 
+                path="/user-page" 
+                element={userData? <UserPage _id={userData._id} userName={userData.userName} email={userData.email} account_creation_date={userData.accountCreationDate} /> : <RequestLogin/>  } />        
             </Routes>
             <Footer/>
         </BrowserRouter>

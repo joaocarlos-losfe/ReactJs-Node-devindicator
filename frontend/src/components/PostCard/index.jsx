@@ -4,10 +4,19 @@ import {AiOutlineLink, AiOutlineDelete} from "react-icons/ai"
 import {FaRegEdit} from "react-icons/fa"
 import {MdOutlineModeEditOutline} from "react-icons/md"
 
+import { useNavigate } from "react-router-dom"
+
 export const PostCard = ({category, datetime, userName, originalAuthor, title, descriptionText, sourceUrl, _id, displayAction, handleDeletePost})=>{
     
+    const navigate = useNavigate()
+
     const deletePost = () => {
         handleDeletePost({_id})
+    }
+
+    const handleEditPost = () => 
+    {
+        navigate(`/edit-post/${_id}`)
     }
     
     return (
@@ -34,16 +43,18 @@ export const PostCard = ({category, datetime, userName, originalAuthor, title, d
                 </a>
 
                 <div style={ !displayAction? {display: "none"} : {}} >
-                    <button type="button">
+
+                    <button type="button" onClick={handleEditPost}>
                         <MdOutlineModeEditOutline id="linkIcon"/>
                     </button>
 
                     <button type="button" onClick={deletePost} >
                         <AiOutlineDelete id="linkIcon"/>
                     </button>
+
+
                 </div>
 
-                
             </div>
 
         </div>

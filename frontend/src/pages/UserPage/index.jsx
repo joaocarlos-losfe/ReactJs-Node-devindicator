@@ -42,7 +42,6 @@ export const UserPage = ({_id, userName, email, account_creation_date})=>
             <h1 id="title">{userName}</h1>
 
             <div className="otherInfo">
-                <h2>seu email: {email}</h2>
                 <h2>conta criada em: {new Date(account_creation_date).toLocaleString('pt-BR')}</h2>
                 {isLoading? <Loading/> : <h2>você publicou um total de {data.total_posts} posts</h2>}
             </div>

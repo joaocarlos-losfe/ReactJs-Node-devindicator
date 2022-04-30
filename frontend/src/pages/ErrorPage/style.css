@@ -1,0 +1,30 @@
+.ErrorPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+    justify-content: center;
+}
+
+.ErrorPage img{
+    margin-bottom: 20px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.ErrorPage h1{
+    color: #fb6b11;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.ErrorPage h2{
+    max-width: 400px;
+    text-align: center;
+    line-height: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.ErrorPage iframe{
+    margin-bottom: 20px;
+}

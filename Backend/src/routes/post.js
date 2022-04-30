@@ -41,6 +41,27 @@ route.post('/new', async (req, res) => {
 
 })
 
+route.get('/get-by-id/:id', async (req, res) => {
+
+    try{
+
+        const post = await PostModel.find({_id: req.params.id})
+
+        console.log(post)
+
+        if(post.length > 0)
+            res.json({isFind: true, post})
+        else
+            res.json({isFind: false, message: "post não encontrado"})
+                
+    }catch(e){
+
+        res.json({isFind: false, message: "post não encontrado"})
+        console.log(e)
+    }
+
+})
+
 route.get('/:page', async (req, res) => {
 
     try {
@@ -150,6 +171,39 @@ route.delete('/:post_id', async (req, res) =>
         console.log(e)
     }
 
+})
+
+route.put('/edit/:id', async (req, res) =>
+{
+    console.log("edit")
+
+    try{
+
+
+        const edited = await PostModel.updateOne({"_id": req.params.id}, 
+        {
+            $set:
+            {
+                "title": req.body.title,
+                "descriptionText": req.body.descriptionText,
+                "originalAuthor": req.body.originalAuthor,
+                "category": req.body.category,
+                "sourceUrl": req.body.sourceUrl
+            }
+        }); 
+
+        if(edited && edited.matchedCount > 0)
+            res.json({isEdited: true, message: "post editado com sucesso ✅ Aguarde. redirecionando ...."})
+        else
+            res.json({isEdited: false, message: "erro ao editar post ⚠️"});
+
+        console.log(edited)
+
+    }catch(e)
+    {
+        res.json({isEdited: false, message: "erro no servidor ⚠️"});
+        console.log(e)
+    }
 })
 
 module.exports = route
