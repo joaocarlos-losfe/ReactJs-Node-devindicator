@@ -85,5 +85,31 @@ route.get('/:email/:pass', async (req, res) =>
    }
 })
 
+route.get("/:email", async (req, res) =>{
+
+    try{
+
+        console.log("get by email <<<<")
+
+        const userMail = await UserModel.findOne({email: req.params.email});
+
+        if(userMail)
+        {
+            res.json({isFind: true, message: "email encontrado"});
+        }
+        else
+            res.json({isFind: false, message: "Nenhum usuário encontrado com esse email ⚠️"});
+
+    }catch(e){
+
+        res.status(500).json({
+            message: 'erro no servidor',
+            isFind: false
+        })
+        console.log(e)
+    }
+
+});
+
 
 module.exports = route

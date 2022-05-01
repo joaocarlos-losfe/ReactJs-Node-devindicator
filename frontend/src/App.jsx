@@ -30,6 +30,7 @@ import {FiMenu} from "react-icons/fi"
 
 import {AiOutlineClose} from "react-icons/ai"
 import { ErrorPage } from './pages/ErrorPage';
+import { RecoveryAccount } from './pages/RecoveryAccount';
 
 
 function App() {
@@ -101,10 +102,9 @@ function App() {
               <Route path="/login" element={<Login userLogin={userLogin}/>}/>
               <Route path="/create-account" element={<CreateAccount/>} />
               <Route path="/edit-post/:_id" element={<EditPost/>} /> 
-                  
-              <Route 
-                path="/user-page" 
-                element={userData? <UserPage _id={userData._id} userName={userData.userName} email={userData.email} account_creation_date={userData.accountCreationDate} /> : <RequestLogin/>  } />        
+              <Route path="/recovery-account" element={<RecoveryAccount/>}/>
+              <Route path="/user-page" element={userData? <UserPage _id={userData._id} userName={userData.userName} email={userData.email} account_creation_date={userData.accountCreationDate} /> : <RequestLogin/>  } />        
+            
             </Routes>
             <Footer/>
         </BrowserRouter>

@@ -56,7 +56,7 @@ export const Login = ({userLogin}) =>{
 
                 <div className="LoginArea">
                     <h2>Não possui uma conta? <Link to="/create-account" className="Link">Criar</Link> </h2>
-                    <h2>Esqueceu seu login? <Link to="/" className="Link">Recuperar</Link> </h2>
+                    <h2>Esqueceu seu login? <Link to="/recovery-account" className="Link">Recuperar</Link> </h2>
                 </div>
 
             </form>
