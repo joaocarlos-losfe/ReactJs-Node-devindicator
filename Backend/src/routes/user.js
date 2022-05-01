@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const route = require('express').Router()
 const UserModel = require('../models/user')
+const sendMail = require('../services/nodemailerService')
 
 const hashPassword = async (password) =>  await bcrypt.hash(password, 10)
 
@@ -85,17 +86,19 @@ route.get('/:email/:pass', async (req, res) =>
    }
 })
 
-route.get("/:email", async (req, res) =>{
+route.get("/recovery/get-mail/:email", async (req, res) =>{
 
     try{
 
         console.log("get by email <<<<")
 
-        const userMail = await UserModel.findOne({email: req.params.email});
+        const userData = await UserModel.findOne({email: req.params.email});
 
-        if(userMail)
+        if(userData)
         {
             res.json({isFind: true, message: "email encontrado"});
+            await sendMail(userData.email, `Olá ${userData.userName}. recuperção da sua conta`, `clique no link para prosseguir com o processo de recuperação: http://localhost:3000/recovery/updatePass/${userData._id}`);
+
         }
         else
             res.json({isFind: false, message: "Nenhum usuário encontrado com esse email ⚠️"});
@@ -105,6 +108,22 @@ route.get("/:email", async (req, res) =>{
         res.status(500).json({
             message: 'erro no servidor',
             isFind: false
+        })
+        console.log(e)
+    }
+
+});
+
+route.put("/recovery/updatePass/:_id", async (req, res) => {
+
+    try{
+
+        res.json({isUpdated: true, message: req.params._id});
+
+    }catch(e){
+        res.status(500).json({
+            message: 'erro no servidor',
+            isUpdated: false
         })
         console.log(e)
     }

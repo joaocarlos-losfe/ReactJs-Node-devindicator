@@ -104,7 +104,8 @@ function App() {
               <Route path="/edit-post/:_id" element={<EditPost/>} /> 
               <Route path="/recovery-account" element={<RecoveryAccount/>}/>
               <Route path="/user-page" element={userData? <UserPage _id={userData._id} userName={userData.userName} email={userData.email} account_creation_date={userData.accountCreationDate} /> : <RequestLogin/>  } />        
-            
+              <Route path="/recovery/updatePass/:_id" element={<ErrorPage/>}/>
+
             </Routes>
             <Footer/>
         </BrowserRouter>

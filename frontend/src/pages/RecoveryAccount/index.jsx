@@ -28,7 +28,7 @@ export const RecoveryAccount = () => {
 
     const handleSendMail = async () =>{
         setLoading(true)
-        const response = await axios.get(`http://localhost:5000/user/${email}`)
+        const response = await axios.get(`http://localhost:5000/user/recovery/get-mail/${email}`)
 
         if(response.data.isFind)
             setCurrentPage("SucessMailSendPage")
