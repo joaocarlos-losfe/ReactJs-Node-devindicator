@@ -89,13 +89,13 @@ export const Indicate = ({user_name}) =>{
             <form>
                 <h1>Indicação de conteúdo</h1>
                 <div className="Input">
-                    <AiOutlineLink className="iconImg"/>
+                    
                     <input value={url} onChange={e => setUrl(e.target.value)} type="text" placeholder="Copie e cole a url do conteúdo que deseja indicar*" />
                 </div>
 
                 <div className="Input">
-                    <AiOutlineUser className="iconImg"/>
-                    <input value={originalAutor} onChange={e => setOriginalAutor(e.target.value)} type="text" placeholder="originalAutor/Empresa do conteúdo*" />
+                    
+                    <input value={originalAutor} onChange={e => setOriginalAutor(e.target.value)} type="text" placeholder="Autor original*" />
                 </div>
 
                 {
@@ -114,13 +114,12 @@ export const Indicate = ({user_name}) =>{
                 }
 
                 <div className="Input">
-                    <AiOutlineUser className="iconImg"/>
+                    
                     <input value={title} onChange={e => setTitle(e.target.value)} type="text" placeholder="Titulo*" />
                 </div>
 
                 <div className="Input">
-                    <AiOutlineTags className="iconImg"/>
-                    <input value={tags} onChange= {e=> setTags(e.target.value)} type="text" placeholder="Tags* (digite separando-as por virgula)" />
+                    <input value={tags} onChange= {e=> setTags(e.target.value)} type="text" placeholder="Tags* (digite separando-as por virgula e sem espaço)" />
                 </div>
 
                 <span>Máximo de caracteres: {descriptionLen} de 250</span>

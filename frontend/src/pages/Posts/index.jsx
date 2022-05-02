@@ -10,12 +10,13 @@ import axios from "axios";
 
 export const Posts = ()=>{
 
+
     const [data, setData] = useState(null);
     const [isLoading, setLoading] = useState(true)
     const [postsTitle, setPostsTitle] = useState("Sugestões")
     const [category, setCategory] = useState('nenhum')
-    const [pageCount, setPageCount] = useState(1)
-    const [page, setPage] = useState(1)
+    
+    const [currentPage, setCurrentPage] = useState(1)
 
     const [isSearching, setIsSeaching] = useState(false)
 
@@ -29,18 +30,20 @@ export const Posts = ()=>{
     }
 
     const incrementPageCount = () => {
-        if (pageCount < data.numberOfPages)
+
+        if (currentPage < data.numberOfPages)
         {
-            setPageCount(pageCount + 1)
-            getPages(`http://localhost:5000/post/${page + 1}`)
+            setCurrentPage(currentPage+1)
+            getPages(`http://localhost:5000/post/${currentPage + 1}`);
         }
     }
 
     const decrementPageCount = () => {
-        if (pageCount > 1 )
+
+        if (currentPage > 1 )
         {
-            setPageCount(pageCount - 1)
-            getPages(`http://localhost:5000/post/${page -1}`)
+            setCurrentPage(currentPage - 1)
+            getPages(`http://localhost:5000/post/${currentPage - 1}`);            
         }
 
     }
@@ -57,14 +60,14 @@ export const Posts = ()=>{
         setIsSeaching(false)
         setPageCount(1)
         setPostsTitle("sugeridos")
-        getPages(`http://localhost:5000/post/${page-1}`)
+        getPages(`http://localhost:5000/post/${currentPage-1}`)
     }
 
 
     //executar na primeira inicialização
     useEffect(()=>
     {
-        getPages(`http://localhost:5000/post/${page}`)
+        getPages(`http://localhost:5000/post/${currentPage}`)
 
     }, [])
 
@@ -100,7 +103,7 @@ export const Posts = ()=>{
                                         <FaChevronLeft id="PrevNextIcons"/>
                                     </button>
                                     <span>Página</span>
-                                    <span id="currentPage"> {pageCount} </span>
+                                    <span id="currentPage" > { currentPage } </span>
                                     <span> de </span>
                                     <span id="totalPage"> {data.numberOfPages} </span>
                                     <button id="nextPage" type="button" onClick={incrementPageCount}>

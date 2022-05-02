@@ -14,7 +14,7 @@ route.post('/new', async (req, res) => {
                 userName: req.body.userName,
                 originalAuthor: req.body.originalAuthor,
                 category: req.body.category,
-                tags: req.body.tags.split(';'),
+                tags: req.body.tags.split(','),
                 descriptionText: req.body.descriptionText,
                 title: req.body.title,
                 sourceUrl: req.body.sourceUrl

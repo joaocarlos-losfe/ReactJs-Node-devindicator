@@ -97,7 +97,7 @@ route.get("/recovery/get-mail/:email", async (req, res) =>{
         if(userData)
         {
             res.json({isFind: true, message: "email encontrado"});
-            await sendMail(userData.email, `Olá ${userData.userName}. recuperção da sua conta`, `clique no link para prosseguir com o processo de recuperação: http://localhost:3000/recovery/updatePass/${userData._id}`);
+            await sendMail(userData.email, `<Mensagem do Devindicator> Olá ${userData.userName}. recuperção da sua conta`, `clique no link para prosseguir com o processo de recuperação: http://localhost:3000/recovery-pass/${userData._id}`);
 
         }
         else
@@ -118,7 +118,28 @@ route.put("/recovery/updatePass/:_id", async (req, res) => {
 
     try{
 
-        res.json({isUpdated: true, message: req.params._id});
+        const { currentPass } = req.body
+        console.log(currentPass)
+        console.log(req.params._id)
+
+        const newPassword = await hashPassword(currentPass)
+        console.log(newPassword)
+
+        const result = await UserModel.updateOne({"_id": req.params._id}, {
+
+            $set:
+            {
+                "password": newPassword
+            }
+
+        })
+
+        console.log(result)
+
+        if(result.matchedCount == 1)
+            res.json({isUpdated: true, message: "senha atualizada com sucesso ✅"});
+        else
+            res.json({isUpdated: false, message: "erro ao atualizar a senha ⚠️"});
 
     }catch(e){
         res.status(500).json({

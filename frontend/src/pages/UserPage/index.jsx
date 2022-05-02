@@ -20,14 +20,20 @@ export const UserPage = ({_id, userName, email, account_creation_date})=>
     }
 
     const deletePost = async (post) =>{
+        
         console.log(post._id)
         await axios.delete(`http://localhost:5000/post/${post._id}`)
     }
     
     const handleDeletePost = async (post) =>{
+
+        if(confirm("Deseja realmente excluir o post ?"))
+        {    
+            await deletePost(post);
+            await reloadUserPosts();
+            alert("Post excluido com sucesso ✅");
+        }
         
-        await deletePost(post)
-        await reloadUserPosts()
     }
 
     useEffect( async ()=>

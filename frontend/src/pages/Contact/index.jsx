@@ -21,11 +21,14 @@ const customMessages = {
 }
 
 export const Contact = () =>{
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [message, setMessage] = useState("")
 
-    const [validContact, setIsValidContact] = useState(false)
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("critica");
+
+    const [message, setMessage] = useState("");
+
+    const [validContact, setIsValidContact] = useState(false);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -38,7 +41,7 @@ export const Contact = () =>{
     const sendMessage = async (apiUrl) =>
     {
         setLoading(true)
-        await axios.post(apiUrl, {"fullname": name, "email": email, "message": message});
+        await axios.post(apiUrl, {"fullname": name, "email": email, "message": message, "subject": subject});
         setLoading(false)
     }
 
@@ -65,6 +68,14 @@ export const Contact = () =>{
                 <h1>Entre em contato</h1>
                 <input value={name} onChange={(e)=>setName(e.target.value)} type="text" placeholder="Seu nome*"/>
                 <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Email*"/>
+
+                <label>Assunto*</label>
+                <select  value={subject} onChange ={e=>setSubject(e.target.value)} placeholder="Assunto" >
+                    <option>critica</option>
+                    <option>ajuda</option>
+                    <option>sugestão</option>
+                </select>
+
                 <textarea value={message} onChange={(e)=>setMessage(e.target.value)} id="messageText" type="text" placeholder="Mensagem*"/>
 
                 <div className="Buttons">

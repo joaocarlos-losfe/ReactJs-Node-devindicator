@@ -11,6 +11,7 @@ route.post('/new', async (req, res) =>{
             contactDate: date,
             wasAnswered : false,
             message: req.body.message,
+            subject: req.body.subject,
             response: ""
         }
 

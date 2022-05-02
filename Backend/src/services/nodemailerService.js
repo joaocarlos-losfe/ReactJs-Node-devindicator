@@ -12,7 +12,7 @@ async function sendMail(to, subject, text){
     });
     
     var mailOptions = {
-      from: process.env.mailFrom,
+      from: process.env.userEmail,
       to: to,
       subject: subject,
       text: text
