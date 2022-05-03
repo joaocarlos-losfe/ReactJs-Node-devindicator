@@ -81,10 +81,10 @@ function App() {
               
               <div className="Links" style={{display:verificaTamanho()}}>
                 <ul>
-                    <Link className="link" to="/">home</Link>
                     <Link className="link" to="indicate">indicar</Link>
                     <Link className="link" to="contact">contato</Link>
                     <Link className="link" to="about">sobre</Link>
+                    <Link className="link" to="about">ajuda</Link>
                     {
                       userData? <Link className="UserComponent" to="/user-page"><FaRegUserCircle id='iconUserdata'/> Olá {userData.userName}</Link> : 
                       <Link id='loginLink' className="link" to="login">login</Link> 

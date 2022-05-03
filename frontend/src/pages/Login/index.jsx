@@ -5,7 +5,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-
 import {Loading} from "../../components/Loading";
 
 export const Login = ({userLogin}) =>{
@@ -22,6 +21,8 @@ export const Login = ({userLogin}) =>{
 
         if(email != "" && pass != "")
         {
+            
+
             setLoading(true)
             const result = await axios.get(`http://localhost:5000/user/${email}/${pass}`)
             setLoading(false)

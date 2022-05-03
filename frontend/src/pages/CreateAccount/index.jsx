@@ -8,6 +8,9 @@ import {SimpleMessage} from "../../components/SimpleMessage";
 
 import { Loading } from "../../components/Loading";
 import axios from "axios";
+import { ValidEmail } from "../../validators/EmailValidator";
+import { ValidPassword } from "../../validators/PassValidator";
+
 
 
 export const CreateAccount = ()=>{
@@ -26,16 +29,8 @@ export const CreateAccount = ()=>{
     let temp_pass = pass
 
     const handlePassword = (value) => {
-        temp_pass = value
         setPass(temp_pass)
         
-        if(temp_pass.length < 4)
-        {
-            setvalidData(false)
-            setMessage(`Senha muito curta. defina uma senha com no minimo 4 caracteres`)
-        }
-        else
-            setvalidData(true)
     }
 
     const sendNewUser = async () =>{
@@ -61,14 +56,14 @@ export const CreateAccount = ()=>{
             setMessage("Usuário invalido")
             setvalidData(false)
         }
-        else if(email.length < 6)
+        else if(!ValidEmail(email))
         {
             setMessage("Email invalido")
             setvalidData(false)
         }
-        else if(pass.length < 4)
+        else if(!ValidPassword(pass))
         {
-            setMessage(`Senha muito curta. defina uma senha com no minimo 4 caracteres`)
+            setMessage(`defina uma senha com no minimo 4 caracteres e que contenha caracteres, dígitos numéricos e sublinhado e o primeiro caractere deve ser uma letra`)
             setvalidData(false)
         }
         else{
@@ -88,7 +83,6 @@ export const CreateAccount = ()=>{
         }
 
         setLoading(false)
-
     }
 
     return(
@@ -96,13 +90,13 @@ export const CreateAccount = ()=>{
             <form>
                 <h1>Criar conta</h1>
 
-                {validData? <></> :<span style={{color:"red", marginBottom: "20px", textAlign: "center", fontSize: "0.9rem", fontWeight: "bold"}}>{message}</span> }
+                {validData? <></> :<span style={{color:"red", marginBottom: "20px", textAlign: "center", fontSize: "0.8rem", fontWeight: "bold"}}>{message}</span> }
                 
                 {isLoading? <Loading/>: <></> }
 
                 <input value={userName} onChange={e => setUserName(e.target.value)} type="text" placeholder="Nome de usuário"/>
                 <input value={email} onChange={e => setEmail(e.target.value)}  type="email" placeholder="Seu email"/>
-                <input value={pass} onChange={e => handlePassword(e.target.value)}  type="password" placeholder="Sua senha"/>
+                <input value={pass} onChange={e => setPass(e.target.value)}  type="password" placeholder="Sua senha"/>
 
                 <div>
                     <button onClick={handleSubmit} type="button">Criar</button>
