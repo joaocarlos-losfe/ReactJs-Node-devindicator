@@ -92,33 +92,19 @@ route.get('/search/:category/:query', async (req, res) => {
     try {
 
         const query = req.params.query
-        const category = req.params.category
-
         const data = await ResourcesModel.find({})
-        const {categories} = data[0]
+        
+        const posts = await PostModel.find({
+            $or: [
+                {category: query},
+                {tags: {$in: [query]}},
+                {title: query},
+                {sourceUrl: query},
+                {userName: query}
+            ]
+        })
 
-        if(category == "nenhum")
-        {
-            const posts = await PostModel.find({
-                $or: [
-                    {tags: {$in: [query]}},
-                    {category: query},
-                    {title: query},
-                    {userName: query}
-                ]
-            })
-            res.status(200).json({posts})
-        }
-        else if (category != "nenhum")
-        {
-            const posts = await PostModel.find({
-                $and: [
-                    {category: category},
-                    {tags: {$in: [query]}},
-                ]
-            })
-            res.status(200).json({posts})
-        }
+        res.status(200).json({posts})
 
     }catch (e)
     {

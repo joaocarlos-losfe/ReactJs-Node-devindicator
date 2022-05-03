@@ -57,10 +57,11 @@ export const Posts = ()=>{
 
     const returnToSugestedPage = ()=>
     {
-        setIsSeaching(false)
-        setPageCount(1)
+        console.log("retornando...")
         setPostsTitle("sugeridos")
-        getPages(`http://localhost:5000/post/${currentPage-1}`)
+        setIsSeaching(false)
+    
+        getPages(`http://localhost:5000/post/${currentPage}`)
     }
 
 
