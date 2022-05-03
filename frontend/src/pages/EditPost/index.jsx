@@ -128,7 +128,7 @@ export const EditPost = () =>{
 
                         <div className="ActionButtons">
                             <button onClick={handleConfirmEdit} id="confirmButtom" type="button">Confirmar</button>
-                            <Link id="cancelButton" to="/">Cancelar</Link>
+                            <Link id="cancelButton" to="/user-page">Cancelar</Link>
                         </div>
 
                         {

@@ -43,6 +43,12 @@ export const Indicate = ({user_name}) =>{
         setDescriptionLen(value.length)
     }
 
+    const navigate = useNavigate()
+
+    function delayAndGo() {
+        setTimeout(() => navigate("/user-page"), 1000);
+    }
+
     const [sendContentLoading, setSendContentLoading] = useState(false)
 
     const submitContent = async () => {
@@ -74,8 +80,11 @@ export const Indicate = ({user_name}) =>{
             const response = await submitContent()
 
             if(response.data.inserted)
+            {
                 setColorMessage("black")
-            
+                delayAndGo()
+            }
+                
             setMessage(response.data.message)
         }
         
@@ -131,7 +140,7 @@ export const Indicate = ({user_name}) =>{
                 </div>
 
                 <div style={{marginTop : "10px"}}>
-                    {message === "" ? <></> : <span style={{color:colorMessage, textAlign:"center", fontSize:"1rem"}} >{message}</span>}
+                    {message === "" ? <></> : <span style={{color:colorMessage, textAlign:"center", fontSize:"0.9rem"}} >{message}</span>}
                     {sendContentLoading ? <Loading/> : <></>}
                 </div>
 

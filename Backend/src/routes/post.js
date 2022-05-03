@@ -2,14 +2,15 @@ const route = require('express').Router()
 const PostModel = require('../models/post')
 const UserModel = require('../models/user')
 const ResourcesModel = require("../models/resources");
+const LogsModel = require('../models/logs');
 
 route.post('/new', async (req, res) => {
+
     try{
         const user = await UserModel.findOne({userName: req.body.userName})
         if(user)
         {
-            console.table(req.body)
-
+            
             const post = {
                 userName: req.body.userName,
                 originalAuthor: req.body.originalAuthor,
@@ -21,9 +22,9 @@ route.post('/new', async (req, res) => {
             }
 
             await PostModel.create(post).then(()=>{
-                res.status(201).json({message: "Post adicionado com sucesso ✔", inserted: true})
+                res.status(201).json({message: "Post adicionado com sucesso ✅", inserted: true})
             }).catch((e)=> {
-                res.status(200).json({message: "Já existe um post adicionado com esses dados por outro usuário!", inserted: false, e})
+                res.status(200).json({message: "Já existe um post adicionado com esses dados", inserted: false, e})
             })
 
         }
@@ -36,7 +37,12 @@ route.post('/new', async (req, res) => {
             inserted: false
         })
 
-        console.log(e)
+        const log = {
+            route: "http://localhost:5000/post/new",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 
 })
@@ -44,7 +50,7 @@ route.post('/new', async (req, res) => {
 route.get('/get-by-id/:id', async (req, res) => {
 
     try{
-
+        
         const post = await PostModel.find({_id: req.params.id})
 
         console.log(post)
@@ -53,11 +59,18 @@ route.get('/get-by-id/:id', async (req, res) => {
             res.json({isFind: true, post})
         else
             res.json({isFind: false, message: "post não encontrado"})
-                
+        
+            
     }catch(e){
 
         res.json({isFind: false, message: "post não encontrado"})
-        console.log(e)
+
+        const log = {
+            route: "http://localhost:5000/post/get-by-id/:id",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 
 })
@@ -65,6 +78,7 @@ route.get('/get-by-id/:id', async (req, res) => {
 route.get('/:page', async (req, res) => {
 
     try {
+
         const page = parseInt(req.params.page)
         const maximumPosts = 6
         const numberOfDocuments = await PostModel.count({})
@@ -77,12 +91,19 @@ route.get('/:page', async (req, res) => {
 
         res.status(200).json({posts, numberOfPages})
 
+
     }catch(e){
-        res.status(401).json({
+        res.status(500).json({
             message: 'erro no servidor',
             inserted: false
         })
-        console.log(e)
+
+        const log = {
+            route: "http://localhost:5000/post/:page",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 
 })
@@ -106,14 +127,20 @@ route.get('/search/:category/:query', async (req, res) => {
 
         res.status(200).json({posts})
 
+
     }catch (e)
     {
-        res.status(401).json({
+        res.status(500).json({
             message: 'erro no servidor',
             inserted: false
         })
 
-        console.log(e)
+        const log = {
+            route: "http://localhost:5000/post/search/:category/:query",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 
 })
@@ -127,17 +154,22 @@ route.get('/get-user-post/:username', async (req, res) =>
 
     }catch(e)
     {
-        res.status(501).json({
+        res.status(500).json({
             message: 'erro no servidor',
         })
-        console.log(e)
+        
+        const log = {
+            route: "http://localhost:5000/post/get-user-post/:username",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 })
 
 route.delete('/:post_id', async (req, res) =>
 {
-    console.log(req.params.post_id)
-
+   
     try{
 
         const deleted = await PostModel.deleteOne({"_id": req.params.post_id})
@@ -154,17 +186,21 @@ route.delete('/:post_id', async (req, res) =>
         res.status(501).json({
             message: 'erro no servidor',
         })
-        console.log(e)
+        
+        const log = {
+            route: "http://localhost:5000/post/:post_id",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 
 })
 
 route.put('/edit/:id', async (req, res) =>
 {
-    console.log("edit")
-
+    
     try{
-
 
         const edited = await PostModel.updateOne({"_id": req.params.id}, 
         {
@@ -183,12 +219,17 @@ route.put('/edit/:id', async (req, res) =>
         else
             res.json({isEdited: false, message: "erro ao editar post ⚠️"});
 
-        console.log(edited)
 
     }catch(e)
     {
         res.json({isEdited: false, message: "erro no servidor ⚠️"});
-        console.log(e)
+     
+        const log = {
+            route: "http://localhost:5000/post/edit/:id",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 })
 

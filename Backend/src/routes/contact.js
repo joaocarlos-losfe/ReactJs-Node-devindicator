@@ -1,6 +1,8 @@
 const route = require('express').Router()
 const ContactModel = require('../models/contact')
 
+const LogsModel = require('../models/logs');
+
 route.post('/new', async (req, res) =>{
     try{
 
@@ -32,6 +34,13 @@ route.post('/new', async (req, res) =>{
             }
             await ContactModel.create(newUser)
             await addMessage()
+
+            const log = {
+                route: "http://localhost:5000/contact/new",
+                message: "usuario anteriormente não registrado. Nova mensagem adicionada",
+            }
+
+            await LogsModel.create(log);
         }
 
         res.status(201).json({
@@ -44,7 +53,13 @@ route.post('/new', async (req, res) =>{
             message: 'erro no servidor',
             inserted: false
         })
-        console.log(e)
+       
+        const log = {
+            route: "http://localhost:5000/contact/new",
+            message: "erro no servidor",
+        }
+
+        await LogsModel.create(log);
     }
 })
 

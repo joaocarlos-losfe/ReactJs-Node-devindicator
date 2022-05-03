@@ -3,6 +3,8 @@ const route = require('express').Router()
 const UserModel = require('../models/user')
 const sendMail = require('../services/nodemailerService')
 
+const LogsModel = require('../models/logs');
+
 const hashPassword = async (password) =>  await bcrypt.hash(password, 10)
 
 const comparePassword = async (userBodyPass, userHashPass) => await bcrypt.compare(userBodyPass, userHashPass)
@@ -37,10 +39,15 @@ route.post('/new', async (req, res) =>{
         res.status(500).json({
             message: 'erro no servidor...',
             inserted: false,
-            e
+            
         })
 
-        console.log(e)
+        const log = {
+            route: "http://localhost:5000/user/new",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 })
 
@@ -77,12 +84,13 @@ route.get('/:email/:pass', async (req, res) =>
        })
 
    }catch(e){
-       res.status(500).json({
-           message: 'erro no servidor',
-           isFind: false
-       })
 
-       console.log(e)
+        const log = {
+            route: "http://localhost:5000/user/:email/:pass",
+            message: e,
+        }
+
+        LogsModel.create(log)
    }
 })
 
@@ -109,7 +117,13 @@ route.get("/recovery/get-mail/:email", async (req, res) =>{
             message: 'erro no servidor',
             isFind: false
         })
-        console.log(e)
+        
+        const log = {
+            route: "http://localhost:5000/user/recovery/get-mail/:email",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 
 });
@@ -146,7 +160,13 @@ route.put("/recovery/updatePass/:_id", async (req, res) => {
             message: 'erro no servidor',
             isUpdated: false
         })
-        console.log(e)
+
+        const log = {
+            route: "http://localhost:5000/user/recovery/updatePass/:_id",
+            message: e,
+        }
+
+        LogsModel.create(log)
     }
 
 });
