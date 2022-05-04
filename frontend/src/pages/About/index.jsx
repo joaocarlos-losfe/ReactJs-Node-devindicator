@@ -1,6 +1,6 @@
 import "./style.css"
 
-import LogoImg from "../../assets/Logo.svg"
+import LogoImg from "../../assets/logo.svg"
 
 export const About = () => {
     return (

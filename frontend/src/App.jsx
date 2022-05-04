@@ -10,7 +10,7 @@ import { UserPage } from './pages/UserPage';
 import { CreateAccount } from './pages/CreateAccount';
 import { RequestLogin } from './pages/RequestLogin';
 import { EditPost } from './pages/EditPost';
-
+import { HelpPage } from './pages/HelpPage';
 
 import {FaRegUserCircle} from 'react-icons/fa'
 
@@ -84,7 +84,7 @@ function App() {
                     <Link className="link" to="indicate">indicar</Link>
                     <Link className="link" to="contact">contato</Link>
                     <Link className="link" to="about">sobre</Link>
-                    <Link className="link" to="about">ajuda</Link>
+                    <Link className="link" to="help">ajuda</Link>
                     {
                       userData? <Link className="UserComponent" to="/user-page"><FaRegUserCircle id='iconUserdata'/> Olá {userData.userName}</Link> : 
                       <Link id='loginLink' className="link" to="login">login</Link> 
@@ -106,7 +106,7 @@ function App() {
               <Route path="/recovery-account" element={<RecoveryAccount/>}/>
               <Route path="/user-page" element={userData? <UserPage _id={userData._id} userName={userData.userName} email={userData.email} account_creation_date={userData.accountCreationDate} /> : <RequestLogin/>  } />        
               <Route path="/recovery-pass/:_id" element={ <PasswordReset/> }/>
-
+              <Route path="/help" element={<HelpPage/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>
